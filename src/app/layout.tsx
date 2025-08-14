@@ -1,10 +1,10 @@
-import './globals.css';
-import Header from '@/component/Header';
-import { Metadata } from 'next';
- 
+import "./globals.css";
+import Header from "@/component/Header";
+import { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'portfolio',
-  description: 'Next.js frontend portfolio',
+  title: "portfolio",
+  description: "Next.js frontend portfolio",
 };
 
 export default function RootLayout({
@@ -12,10 +12,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const Style = "bg-background text-basecolor";
+
   return (
     <html lang="ko">
-      <body className='bg-background text-basecolor'>
-        <Header/>
+      <body className={Style}>
+        <Header />
         {children}
       </body>
     </html>
