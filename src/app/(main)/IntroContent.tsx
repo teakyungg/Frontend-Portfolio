@@ -37,6 +37,8 @@ export function IntroContent() {
 
   return (
     <div className={Style}>
+      <h2 className="sr-only">Intro Content</h2>
+
       {/* back Titile */}
       <span
         ref={back_Element}
