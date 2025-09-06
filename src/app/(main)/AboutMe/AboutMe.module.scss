@@ -1,0 +1,51 @@
+.aboutMe {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 80px 0px;
+  border-bottom: 1px solid;
+
+  .title {
+    font: 60px;
+    font-weight: bold;
+  }
+
+  .content {
+    width: 800px;
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .privacy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .contentBox {
+    background-color: #11182780;
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .contentText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+
+    span {
+      font-weight: bold;
+    }
+
+    p {
+      color: #9ca3af;
+      white-space: pre-line;
+    }
+  }
+}

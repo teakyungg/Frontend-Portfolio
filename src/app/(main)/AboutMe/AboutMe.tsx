@@ -1,3 +1,5 @@
+import styles from "./AboutMe.module.scss";
+
 interface ContentTextProps {
   title?: string;
   content?: string;
@@ -6,14 +8,12 @@ interface ContentTextProps {
 }
 
 export function AboutMe() {
-  const Style = "w-[80%] flex flex-col items-center m-auto border-b py-[80px]";
-  const content_Style = "flex flex-col gap-[25px] w-[800px] pt-[25px]";
-
   return (
-    <div className={Style}>
-      <h2 className="text-[60px] font-bold">About Me</h2>
+    <div className={styles.aboutMe}>
+      <h2 className={styles.title}>About Me</h2>
 
-      <div className={content_Style}>
+      <div className={styles.content}>
+        {/* 프론트 엔드 시작 이유 */}
         <ContentBox>
           <ContentText
             title="프론트엔드를 시작하게된 이유는?"
@@ -23,6 +23,7 @@ export function AboutMe() {
           />
         </ContentBox>
 
+        {/* 목표 */}
         <ContentBox>
           <ContentText
             title="목표는?"
@@ -30,10 +31,11 @@ export function AboutMe() {
           />
         </ContentBox>
 
+        {/* Contact */}
         <ContentBox>
           <ContentText title="Contact" />
 
-          <div className="grid grid-cols-2 grid-rows-2 gap-[20px]">
+          <div className={styles.privacy}>
             <ContentText title="이름" content="김태경" titleTextSize={20} />
             <ContentText title="이메일" content="rlaxorud8532@gmail.com" titleTextSize={20} />
             <ContentText title="주소" content="경기도 오산시" titleTextSize={20} />
@@ -46,20 +48,14 @@ export function AboutMe() {
 }
 
 function ContentBox({ children }: { children: React.ReactNode }) {
-  return <div className="bg-[#11182780] p-5 rounded-3xl">{children}</div>;
+  return <div className={styles.contentBox}>{children}</div>;
 }
 
 function ContentText({ title, content, titleTextSize, contentTextSize }: ContentTextProps) {
   return (
-    <div className="flex flex-col gap-[10px] text-center">
-      <span className={`font-bold ${titleTextSize ? `text-[${titleTextSize}px]` : "text-[25px]"}`}>{title}</span>
-      <p
-        className={`whitespace-pre-line text-[#9ca3af] ${
-          contentTextSize ? `text-[${contentTextSize}px]` : "text-[16px]"
-        }`}
-      >
-        {content}
-      </p>
+    <div className={styles.contentText}>
+      <span style={{ fontSize: titleTextSize ? `${titleTextSize}px` : "25px" }}>{title}</span>
+      <p style={{ fontSize: contentTextSize ? `${contentTextSize}px` : "16px" }}>{content}</p>
     </div>
   );
 }
