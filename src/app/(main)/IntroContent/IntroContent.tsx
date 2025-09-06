@@ -2,12 +2,9 @@
 import { gsap } from "gsap";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import styles from "./IntroContent.module.scss";
 
-export function IntroContent() {
-  const Style = "w-[80%] h-full flex flex-col gap-5 justify-center items-center m-auto relative border-b";
-  const main_Style = "text-[36px]";
-  const sub_Style = "text-[20px] flex flex-col items-center text-graycolor";
-
+export function Intro() {
   const back_Element = useRef<HTMLSpanElement>(null);
   const main_Element = useRef<HTMLDivElement>(null);
   const sub_Element = useRef<HTMLDivElement>(null);
@@ -36,34 +33,31 @@ export function IntroContent() {
   }, []);
 
   return (
-    <div className={Style}>
+    <div className={styles.intro}>
       <h2 className="sr-only">Intro Content</h2>
 
       {/* back Titile */}
-      <span
-        ref={back_Element}
-        className="absolute text-[160px] font-[600] top-[120px] text-graycolor"
-        style={{ fontFamily: "YeongwolTTF-Regular" }}
-      >
+      <span ref={back_Element} className={styles.backTitle}>
         Frontend
       </span>
 
       {/* Title */}
-      <div ref={main_Element} className={main_Style}>
-        <span className="text-[60px] font-bold">프론트엔드</span> 개발자{" "}
-        <span className="text-[40px] font-bold">김태경</span>입니다.
+      <div ref={main_Element} className={styles.title}>
+        <span>프론트엔드</span> 개발자
+        <span> 김태경 </span>입니다.
       </div>
 
       {/* sub Title */}
       <div>
-        <div ref={sub_Element} className={sub_Style}>
+        <div ref={sub_Element} className={styles.subStyle}>
           <span>매일 성장, 매일 발전</span>
           <span>
-            매 순간 <span className="text-[25px]">성장</span>하는 <span className="text-[25px]">개발자</span>입니다.
+            매 순간 <span className={styles.largeFont}>성장</span>하는 <span className={styles.largeFont}>개발자</span>
+            입니다.
           </span>
         </div>
 
-        <div ref={github_Logo_Element} className="w-10 h-10 m-auto pt-8">
+        <div ref={github_Logo_Element} className={styles.githubLogo}>
           <Link href={"https://github.com/teakyungg"} target="_blank">
             <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path

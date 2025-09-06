@@ -51,7 +51,7 @@ function ContentBox({ children }: { children: React.ReactNode }) {
 
 function ContentText({ title, content, titleTextSize, contentTextSize }: ContentTextProps) {
   return (
-    <div className="flex flex-col gap-[10px]">
+    <div className="flex flex-col gap-[10px] text-center">
       <span className={`font-bold ${titleTextSize ? `text-[${titleTextSize}px]` : "text-[25px]"}`}>{title}</span>
       <p
         className={`whitespace-pre-line text-[#9ca3af] ${
