@@ -17,9 +17,7 @@ export function AboutMe() {
         <ContentBox>
           <ContentText
             title="프론트엔드를 시작하게된 이유는?"
-            content={`처음에는 단순한 정보 전달용 웹페이지를 제작했지만, 스타일 관리의 비효율성을 느끼며 CSS를 배우게 되었습니다.
-                      이후 사용자와 상호작용하는 웹을 만들고 싶어 JavaScript를 익혔고, 더 효율적인 개발을 위해 React와 Next.js를
-                      접하며 프론트엔드 개발자의 길을 걷게 되었습니다.`}
+            content={`처음에는 단순한 정보 전달용 웹페이지를 제작했지만, 스타일 관리의 비효율성을 느끼며 CSS를 배우게 되었습니다. 이후 사용자와 상호작용하는 웹을 만들고 싶어 JavaScript를 익혔고, 더 효율적인 개발을 위해 React와 Next.js를 접하며 프론트엔드 개발자의 길을 걷게 되었습니다.`}
           />
         </ContentBox>
 
