@@ -1,6 +1,6 @@
 import { AboutMe } from "./AboutMe/AboutMe";
 import { Intro } from "./IntroContent/IntroContent";
-import { Skill } from "./Skill/Skill";
+import { Project } from "./Project/Project";
 
 export default function Main() {
   const intro_Style = "w-full h-[900px] pt-[62px] min-w-[700px]";
@@ -19,7 +19,7 @@ export default function Main() {
 
       {/* skills */}
       <section>
-        <Skill />
+        <Project />
       </section>
     </>
   );

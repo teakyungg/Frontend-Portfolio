@@ -1,0 +1,36 @@
+.project {
+  width: 1000px;
+  height: 1000px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 auto;
+  border-bottom: 1px solid white;
+  padding: 80px 0px 80px 0px;
+
+  .title {
+    font-size: 60px;
+    font-weight: bold;
+  }
+
+  .projectTitle {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0px;
+
+    width: 1200px;
+    font-size: 40px;
+
+    .nowProjectTitle {
+      border-bottom: 5px solid white;
+    }
+  }
+
+  .projectList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
