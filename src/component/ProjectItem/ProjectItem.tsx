@@ -8,7 +8,7 @@ interface ProjectItem {
   title: string;
   link: string;
   titleColor?: string;
-  titleFontFamily?: string;
+  titleFontFamily: string;
 }
 
 export default function ProjectItem({ src, alt, title, titleColor = "black", titleFontFamily, link }: ProjectItem) {

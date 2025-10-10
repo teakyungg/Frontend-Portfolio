@@ -24,7 +24,16 @@
     font-size: 40px;
 
     .nowProjectTitle {
-      border-bottom: 5px solid white;
+      width: 100%;
+      height: 5px;
+      background-color: white;
+
+      transition: width 0.5s;
+    }
+
+    .defaultProjectTitle {
+      width: 0%;
+      height: 5px;
     }
   }
 
