@@ -43,7 +43,7 @@ export function Project() {
   return (
     <div className={styles.project}>
       {/* project */}
-      <h2 className={styles.title}>Project</h2>
+      <h1 className={styles.title}>Project</h1>
 
       <div>
         {/* project list title */}
