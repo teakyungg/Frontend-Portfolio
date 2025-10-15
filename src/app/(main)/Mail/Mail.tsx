@@ -20,22 +20,24 @@ export function Mail() {
   };
 
   return (
-    <div className={styles.mailInner}>
-      {/* 메일 바로 보내기 */}
-      <div className={styles.list}>
-        <a
-          className={`${styles.mailLink} ${styles.mailLinkImage}`}
-          href="mailto:rlaxorud8532@gmail.com"
-          target="_blank"
-        ></a>
-        <span className={styles.title}>메일 바로 보내기</span>
-      </div>
+    <aside>
+      <div className={styles.mailInner}>
+        {/* 메일 바로 보내기 */}
+        <div className={styles.list}>
+          <a
+            className={`${styles.mailLink} ${styles.mailLinkImage}`}
+            href="mailto:rlaxorud8532@gmail.com"
+            target="_blank"
+          ></a>
+          <span className={styles.title}>메일 바로 보내기</span>
+        </div>
 
-      {/* 메일 클립 보드 복사하기 */}
-      <div className={styles.list}>
-        <div className={`${styles.mailLink} ${styles.mailImage}`} ref={mailAddress} onClick={copyAddress}></div>
-        <span className={styles.title}>메일 주소 복사하기</span>
+        {/* 메일 클립 보드 복사하기 */}
+        <div className={styles.list}>
+          <div className={`${styles.mailLink} ${styles.mailImage}`} ref={mailAddress} onClick={copyAddress}></div>
+          <span className={styles.title}>메일 주소 복사하기</span>
+        </div>
       </div>
-    </div>
+    </aside>
   );
 }

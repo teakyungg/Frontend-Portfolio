@@ -5,33 +5,24 @@ import { Project } from "./Project/Project";
 import { Skills } from "./Skills/Skills";
 
 export default function Main() {
-  const intro_Style = "w-full h-[900px] pt-[62px] min-w-[700px]";
-
   return (
     <>
       {/* 인트로 */}
-      <section className={intro_Style}>
-        <Intro />
-      </section>
+      <Intro />
+
       {/* project */}
-      <section>
-        <Project />
-      </section>
+      <Project />
 
       {/* Skills */}
-      <section>
-        <Skills />
-      </section>
+      <Skills />
 
       {/* about 자기소개 */}
-      <section>
-        <AboutMe />
-      </section>
+      <AboutMe />
+
+      <div>감사합니다</div>
 
       {/* 메일 보내는 부분 */}
-      <aside>
-        <Mail />
-      </aside>
+      <Mail />
 
       {/* 자기소개 부분에 메일 클라이언트 추가하기 */}
       {/* 맨 밑에 읽어주셔서 감사합니다라는 거 넣기 */}

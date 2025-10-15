@@ -41,17 +41,19 @@ export function Project() {
   }, []);
 
   return (
-    <div className={styles.project}>
-      {/* project */}
-      <h1 className={styles.title}>Project</h1>
+    <section>
+      <div className={styles.project}>
+        {/* project */}
+        <h1 className={styles.title}>Project</h1>
 
-      <div>
-        {/* project list title */}
-        <ul className={styles.projectTitle}>{titleEl}</ul>
+        <div>
+          {/* project list title */}
+          <ul className={styles.projectTitle}>{titleEl}</ul>
 
-        {/* project list */}
-        <ul className={styles.projectList}>{projectItem}</ul>
+          {/* project list */}
+          <ul className={styles.projectList}>{projectItem}</ul>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
