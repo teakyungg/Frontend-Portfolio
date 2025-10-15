@@ -1,3 +1,6 @@
+$contentColor: #11182780;
+$contentRadius: 24px;
+
 .aboutMe {
   width: 1000px;
   display: flex;
@@ -28,9 +31,9 @@
   }
 
   .contentBox {
-    background-color: #11182780;
+    background-color: $contentColor;
+    border-radius: $contentRadius;
     padding: 20px;
-    border-radius: 24px;
   }
 
   .contentText {
