@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import styles from "./Header.module.scss";
 
@@ -10,8 +11,26 @@ export default function Header() {
 }
 
 function HeaderContent() {
-  const linkName = ["Home", "About", "Skills", "Projects", "Contact"];
-  const linkEl = linkName.map((i) => <li key={i}>{i}</li>);
+  const scrollLoction = [800, 1700, 2450];
+
+  const scrollToCustomPosition = (i: number) => {
+    window.scrollTo({
+      top: scrollLoction[i],
+      behavior: "smooth", // 부드럽게 이동
+    });
+  };
+
+  const linkName = ["Project", "Skill", "About"];
+  const linkEl = linkName.map((i, index) => (
+    <li
+      key={i}
+      onClick={() => {
+        scrollToCustomPosition(index);
+      }}
+    >
+      {i}
+    </li>
+  ));
 
   return (
     <div className={styles.content}>

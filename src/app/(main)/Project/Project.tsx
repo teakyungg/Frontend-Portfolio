@@ -17,8 +17,6 @@ export function Project() {
   const titleEl = titleText.map((item) => (
     <li
       key={item}
-      // 이거 border-bottom을 조정하는걸 말고 따로 하나 만들어서 조정을 해야할거 같은데
-      // className={nowProjectTitle === item ? styles.nowProjectTitle : styles.defaultProjectTitle}
       onClick={() => {
         categroyClick(item);
       }}
