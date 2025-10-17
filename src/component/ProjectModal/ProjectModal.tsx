@@ -12,6 +12,7 @@ export function ProjectModal({ children, closeFn }: ProjectModal) {
     <div className={styles.karlyOverlay} onClick={closeFn}>
       {/* 모달창 내용 부분 */}
       <div className={styles.karlyModalInner} onClick={(e) => e.stopPropagation()}>
+        {/* x 버튼 */}
         <Image
           src={"/closeButton.png"}
           width={40}
