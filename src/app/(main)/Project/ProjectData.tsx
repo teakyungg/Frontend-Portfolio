@@ -1,12 +1,16 @@
 import ProjectItem from "@/component/ProjectItem/ProjectItem";
 import { KarlyModal } from "./ProjectModal/Karly/KarlyModal";
 import { useState } from "react";
+import { Game2048Modal } from "./ProjectModal/Game2048/Game2048Modal";
+import { StarbucksModal } from "./ProjectModal/Starbucks/StarbucksModal";
+import { FundreamModal } from "./ProjectModal/Fundream/FundreamModal";
+import { PortfolioModal } from "./ProjectModal/Portfolio/PortfolioModal";
 
 export default function ProjectData() {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState([false, false, false, false, false]);
 
-  const clickModal = () => {
-    setModal(!modal);
+  const clickModal = (num: number) => {
+    setModal((prev) => prev.map((v, i) => (i === num ? !v : v)));
   };
 
   const projectList = [
@@ -19,10 +23,10 @@ export default function ProjectData() {
       titleColor="purple"
       titleFontFamily="YeongwolTTF-Regular"
       data-categroy={["All", "Sub"]}
-      modal={modal}
-      setModal={clickModal}
+      modal={modal[0]}
+      setModal={() => clickModal(0)}
     >
-      <KarlyModal setModal={clickModal} />
+      <KarlyModal setModal={() => clickModal(0)} />
     </ProjectItem>,
 
     /* 2048 */
@@ -34,7 +38,11 @@ export default function ProjectData() {
       titleColor="rgb(44, 62, 80)"
       titleFontFamily="Paperozi"
       data-categroy={["All", "Sub"]}
-    />,
+      modal={modal[1]}
+      setModal={() => clickModal(1)}
+    >
+      <Game2048Modal setModal={() => clickModal(1)} />
+    </ProjectItem>,
 
     /* starbuck */
     <ProjectItem
@@ -45,7 +53,11 @@ export default function ProjectData() {
       titleColor="green"
       titleFontFamily="Aggravo"
       data-categroy={["All", "Sub"]}
-    />,
+      modal={modal[2]}
+      setModal={() => clickModal(2)}
+    >
+      <StarbucksModal setModal={() => clickModal(2)} />
+    </ProjectItem>,
 
     /* fundream */
     <ProjectItem
@@ -56,7 +68,11 @@ export default function ProjectData() {
       titleColor="rgb(9, 31, 176)"
       titleFontFamily="Cafe24Surround"
       data-categroy={["All", "Next.js"]}
-    />,
+      modal={modal[3]}
+      setModal={() => clickModal(3)}
+    >
+      <FundreamModal setModal={() => clickModal(3)} />
+    </ProjectItem>,
 
     /* portfolio */
     <ProjectItem
@@ -67,7 +83,11 @@ export default function ProjectData() {
       titleColor="black"
       titleFontFamily="SfHambakneun"
       data-categroy={["All", "Next.js"]}
-    />,
+      modal={modal[4]}
+      setModal={() => clickModal(4)}
+    >
+      <PortfolioModal setModal={() => clickModal(4)} />
+    </ProjectItem>,
   ];
 
   return projectList;

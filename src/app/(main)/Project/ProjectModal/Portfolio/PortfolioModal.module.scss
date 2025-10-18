@@ -6,7 +6,7 @@
   height: 100%;
 
   .imageInner {
-    background-image: url("/karly.png");
+    background-image: url("/portfolio.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -51,15 +51,11 @@
       gap: 10px;
 
       .link {
-        background-color: rgba(17, 24, 39, 0.2);
+        background-color: rgba(17, 24, 39, 0.5);
         width: 150px;
         padding: 10px;
         text-align: center;
         border-radius: 16px;
-
-        &:hover {
-          background-color: rgba(17, 24, 39, 0.5);
-        }
       }
     }
   }
