@@ -14,34 +14,34 @@ export default function ProjectData() {
   };
 
   const projectList = [
-    /* karly */
+    /* portfolio */
     <ProjectItem
-      key="karly item"
-      src="/karly.png"
-      alt="karly image"
-      title="karly"
-      titleColor="purple"
-      titleFontFamily="YeongwolTTF-Regular"
-      data-categroy={["All", "Sub"]}
+      key="portfolio item"
+      src="/portfolio.png"
+      alt="portfolio image"
+      title="portfolio"
+      titleColor="black"
+      titleFontFamily="SfHambakneun"
+      data-categroy={["All", "Next.js"]}
       modal={modal[0]}
       setModal={() => clickModal(0)}
     >
-      <KarlyModal setModal={() => clickModal(0)} />
+      <PortfolioModal setModal={() => clickModal(0)} />
     </ProjectItem>,
 
-    /* 2048 */
+    /* fundream */
     <ProjectItem
-      key="2048 item"
-      src="/game_2048.png"
-      alt="2048 image"
-      title="2048"
-      titleColor="rgb(44, 62, 80)"
-      titleFontFamily="Paperozi"
-      data-categroy={["All", "Sub"]}
+      key="fundream item"
+      src="/fundream.png"
+      alt="fundream image"
+      title="fundream"
+      titleColor="rgb(9, 31, 176)"
+      titleFontFamily="Cafe24Surround"
+      data-categroy={["All", "Next.js"]}
       modal={modal[1]}
       setModal={() => clickModal(1)}
     >
-      <Game2048Modal setModal={() => clickModal(1)} />
+      <FundreamModal setModal={() => clickModal(1)} />
     </ProjectItem>,
 
     /* starbuck */
@@ -59,34 +59,34 @@ export default function ProjectData() {
       <StarbucksModal setModal={() => clickModal(2)} />
     </ProjectItem>,
 
-    /* fundream */
+    /* 2048 */
     <ProjectItem
-      key="fundream item"
-      src="/fundream.png"
-      alt="fundream image"
-      title="fundream"
-      titleColor="rgb(9, 31, 176)"
-      titleFontFamily="Cafe24Surround"
-      data-categroy={["All", "Next.js"]}
+      key="2048 item"
+      src="/game_2048.png"
+      alt="2048 image"
+      title="2048"
+      titleColor="rgb(44, 62, 80)"
+      titleFontFamily="Paperozi"
+      data-categroy={["All", "Sub"]}
       modal={modal[3]}
       setModal={() => clickModal(3)}
     >
-      <FundreamModal setModal={() => clickModal(3)} />
+      <Game2048Modal setModal={() => clickModal(3)} />
     </ProjectItem>,
 
-    /* portfolio */
+    /* karly */
     <ProjectItem
-      key="portfolio item"
-      src="/portfolio.png"
-      alt="portfolio image"
-      title="portfolio"
-      titleColor="black"
-      titleFontFamily="SfHambakneun"
-      data-categroy={["All", "Next.js"]}
+      key="karly item"
+      src="/karly.png"
+      alt="karly image"
+      title="karly"
+      titleColor="purple"
+      titleFontFamily="YeongwolTTF-Regular"
+      data-categroy={["All", "Sub"]}
       modal={modal[4]}
       setModal={() => clickModal(4)}
     >
-      <PortfolioModal setModal={() => clickModal(4)} />
+      <KarlyModal setModal={() => clickModal(4)} />
     </ProjectItem>,
   ];
 
