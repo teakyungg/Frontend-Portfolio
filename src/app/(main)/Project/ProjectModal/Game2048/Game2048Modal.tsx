@@ -64,7 +64,7 @@ export function Game2048Modal({ setModal }: Game2048) {
                   <summary>프로젝트 초기 회의에서 팀원들의 작업물을 통합하는 위한 버전 관리 필요성을 느낌</summary>
                   <p className={styles.solution}>
                     Git을 활용해 작업 버전을 체계적으로 관리하고, GitHub에 각 팀원의 작업을 백업하여 예기치 못한
-                    상황에서도 안정적으로 프로젝트를 유지할 수 있도록 대비했습니다
+                    상황에서도 안정적으로 프로젝트를 유지할 수 있도록 대비했습니다.
                   </p>
                 </details>
               </li>
