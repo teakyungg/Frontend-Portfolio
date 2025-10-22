@@ -86,11 +86,66 @@ export function StarbucksModal({ setModal }: Starbucks) {
               <li>
                 <details open>
                   <summary>
-                    작업을 진행하면서 코드의 안정적인 유지보수를 위해 체계적인 버전 관리의 필요성을 느낌
+                    프로모션 영역을 토글할 때마다 페이지 전체의 높이가 바뀌면서 ScrollTrigger 애니메이션이 깨지거나,
+                    화면이 UI가 망가지는 문제가 발생
                   </summary>
                   <p className={styles.solution}>
-                    Git을 통해 체계적으로 버전을 관리하고, GitHub에 원격 백업을 수행함으로써 코드 손실 위험을 최소화하고
-                    안정적인 개발 환경을 유지했습니다.
+                    <span>
+                      ScrollTrigger 인스턴스를 섹션별로 배열에 저장하고, 레이아웃 변경 시 refresh()를 호출하여
+                      애니메이션 기준점을 재계산하도록 했습니다.
+                    </span>
+                    <span>또한 transition 시간이 끝난 뒤 DOM 높이를 재조정하도록 setTimeout을 추가했습니다.</span>
+                    <span>
+                      그 결과 레이아웃 변화에도 애니메이션이 정상적으로 작동하여 시각적 안정성과 페이지 전환 부드러움이
+                      개선되었습니다.
+                    </span>
+                  </p>
+                </details>
+              </li>
+
+              <li>
+                <details open>
+                  <summary>
+                    탭이 백그라운드 상태에서도 Swiper 캐러셀이 계속 동작해 CPU 점유율과 배터리 소모가 불필요하게
+                    증가하는 문제 발생
+                  </summary>
+                  <p className={styles.solution}>
+                    <span>
+                      document.visibilitychange 이벤트를 활용해, 탭이 비활성화되면 swiper.autoplay.stop()을, 다시
+                      활성화되면 start()를 호출하도록 구현했습니다.
+                    </span>
+                    <span>
+                      불필요한 연산이 줄어 모바일 배터리 효율이 향상되고, 브라우저 리소스 점유율이 감소해 체감 성능이
+                      개선되었습니다.
+                    </span>
+                  </p>
+                </details>
+              </li>
+
+              <li>
+                <details open>
+                  <summary>
+                    스타벅스 사이트 특성상 이미지와 시각적 콘텐츠가 많아 시멘틱 구조와 접근성이 부족할 경우, 시각
+                    장애인이나 스크린리더 사용자의 접근이 어려운 문제 발생
+                  </summary>
+                  <p className={styles.solution}>
+                    <span>sr-only, alt, aria-label 등을 사용해 시멘틱한 구조와 접근성 보조 요소를 추가했습니다.</span>
+                    <span>
+                      스크린리더 지원이 강화되어 접근성 점수가 향상되었고, 웹 표준 및 SEO 관점에서도 긍정적인 효과를
+                      얻었습니다.
+                    </span>
+                  </p>
+                </details>
+              </li>
+
+              <li>
+                <details open>
+                  <summary>다양한 해상도에서 영상 배경과 레이아웃이 비율을 잃거나 잘리는 문제 발생</summary>
+                  <p className={styles.solution}>
+                    <span>
+                      CSS aspect-ratio, object-fit, @media 쿼리를 사용해 해상도별 비율을 자동 보정하고, 컨테이너
+                      기반으로 반응형 구조를 설계했습니다.
+                    </span>
                   </p>
                 </details>
               </li>
