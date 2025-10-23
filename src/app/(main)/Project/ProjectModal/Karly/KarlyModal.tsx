@@ -38,6 +38,9 @@ export function KarlyModal({ setModal }: KarlyModal) {
               <li>
                 <TextStrong>GitHub</TextStrong>
               </li>
+              <li>
+                <TextStrong>팀 프로젝트</TextStrong>
+              </li>
             </ul>
           </div>
 

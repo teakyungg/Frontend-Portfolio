@@ -35,9 +35,11 @@ export function Game2048Modal({ setModal }: Game2048) {
               <li>
                 <TextStrong>GitHub</TextStrong>
               </li>
-
               <li>
                 <TextStrong>Notion</TextStrong>
+              </li>
+              <li>
+                <TextStrong>팀 프로젝트</TextStrong>
               </li>
             </ul>
           </div>

@@ -19,13 +19,6 @@ export function FundreamModal({ setModal }: FundreamModal) {
           </a>
         </div>
 
-        {/* 여기 부분 부터 
-        
-          다 새롭게 적기
-        
-          
-        */}
-
         {/* 내용 */}
         <div className={styles.textInner}>
           {/* 사용 기술 */}
@@ -46,6 +39,9 @@ export function FundreamModal({ setModal }: FundreamModal) {
               </li>
               <li>
                 <TextStrong>Zustand</TextStrong>
+              </li>
+              <li>
+                <TextStrong>팀 프로젝트</TextStrong>
               </li>
             </ul>
           </div>
