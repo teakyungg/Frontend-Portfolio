@@ -4,6 +4,7 @@ import { Intro } from "./IntroContent/IntroContent";
 import { Mail } from "./Mail/Mail";
 import { Project } from "./Project/Project";
 import { Skills } from "./Skills/Skills";
+import { StudyLog } from "./StudyLog/StudyLog";
 
 export default function Main() {
   return (
@@ -16,6 +17,9 @@ export default function Main() {
 
       {/* Skills */}
       <Skills />
+
+      {/* 개념 정리 */}
+      <StudyLog />
 
       {/* about 자기소개 */}
       <AboutMe />
