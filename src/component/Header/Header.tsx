@@ -11,7 +11,8 @@ export default function Header() {
 }
 
 function HeaderContent() {
-  const scrollLoction = [800, 1700, 2450];
+  const linkName = ["Project", "Skill", "StudyLog", "About"];
+  const scrollLoction = [800, 1700, 2250, 2750];
 
   const scrollToCustomPosition = (i: number) => {
     window.scrollTo({
@@ -20,7 +21,6 @@ function HeaderContent() {
     });
   };
 
-  const linkName = ["Project", "Skill", "About"];
   const linkEl = linkName.map((i, index) => (
     <li
       key={i}
