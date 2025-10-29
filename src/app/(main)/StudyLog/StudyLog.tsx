@@ -16,6 +16,12 @@ export function StudyLog() {
             title="float"
             link="https://florentine-soy-ff3.notion.site/float-297abb3b12b680bea5d3fe991fa3d6ec?source=copy_link"
           />
+
+          {/* position 속성 정리 페이지 */}
+          <NotionLink
+            title="position"
+            link="https://florentine-soy-ff3.notion.site/position-29babb3b12b6805e8bd2f74165803ffb"
+          />
         </div>
       </div>
     </section>
