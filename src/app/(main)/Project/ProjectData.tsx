@@ -75,19 +75,19 @@ export default function ProjectData() {
     </ProjectItem>,
 
     /* portfolio */
-    // <ProjectItem
-    //   key="portfolio item"
-    //   src="/portfolio.png"
-    //   alt="portfolio image"
-    //   title="portfolio"
-    //   titleColor="black"
-    //   titleFontFamily="SfHambakneun"
-    //   data-categroy={["All", "Next.js"]}
-    //   modal={modal[0]}
-    //   setModal={() => clickModal(0)}
-    // >
-    //   <PortfolioModal setModal={() => clickModal(0)} />
-    // </ProjectItem>,
+    <ProjectItem
+      key="portfolio item"
+      src="/portfolio.png"
+      alt="portfolio image"
+      title="portfolio"
+      titleColor="black"
+      titleFontFamily="SfHambakneun"
+      data-categroy={["All", "Next.js"]}
+      modal={modal[0]}
+      setModal={() => clickModal(0)}
+    >
+      <PortfolioModal setModal={() => clickModal(0)} />
+    </ProjectItem>,
   ];
 
   return projectList;

@@ -44,6 +44,10 @@ export function StarbucksModal({ setModal }: Starbucks) {
               <li>
                 <TextStrong>Prettier</TextStrong>
               </li>
+
+              <li>
+                <TextStrong>개인 프로젝트</TextStrong>
+              </li>
             </ul>
           </div>
 
