@@ -48,15 +48,19 @@ export function FundreamModal({ setModal }: FundreamModal) {
 
           {/* 개발 시 발생한 문제점 및 해결방안*/}
           <div className={styles.issueSolutionPairs}>
-            <span className={styles.title}>개발 시 발생한 문제점 및 해결 방안</span>
+            <span className={styles.title}>프로젝트 개발 중 고민한 부분과 해결 방식</span>
 
             <ul className={styles.questionInner}>
               <li>
                 <details open>
-                  <summary>React 단독으로 개발할 경우, SEO 최적화가 제대로 적용되지 않는 문제가 발생</summary>
+                  <summary>현재 프로젝트를 Next.js로 개발하신 이유가 있을까요?</summary>
                   <p className={styles.solution}>
-                    이를 해결하기 위해 Next.js를 도입하여 메타 데이터를 작성함으로써 SEO를 최적화하고, 동시에 React의
-                    개발 편의성도 유지할 수 있었습니다
+                    {`현재 프로젝트는 쇼핑몰 웹사이트 구축을 목표로 하고 있으며,
+                      제품 노출과 트래픽 확보를 위해 검색 엔진 최적화(SEO)가 중요한 핵심 요구사항이었습니다.
+
+                     일반적인 React SPA(Client-Side Rendering) 방식은 초기 로딩 시 HTML이 비어 있는 상태로 전달되기 때문에, SEO부분에서 불리합니다.
+                     그렇기에 SSR(Server-Side Rendering)를 사용하는 Next.js를 이용하여 SEO에 최적화된 프로젝트를 만들기로 결정하였습니다.
+                      `}
                   </p>
                 </details>
               </li>
@@ -64,25 +68,31 @@ export function FundreamModal({ setModal }: FundreamModal) {
               <li>
                 <details open>
                   <summary>
-                    상품 설명 영역을 구현하는 과정에서, 일반 CSS와 JavaScript만으로 작업할 경우 개발에 과도한 시간이
-                    소요될 것으로 예상되는 문제가 발생
+                    현재 프로젝트에서 가장 개발 시간이 많이 소요된 부분은 무엇이며, 어떤 방식으로 해결하셨나요?
                   </summary>
                   <p className={styles.solution}>
-                    메인 작업에서 React와 호환되는 라이브러리를 탐색하던 중, React 환경에 최적화된 ReactQuill을 도입하여
-                    개발 효율을 높이고 작업 시간을 단축했습니다.
+                    {`프로젝트에서 가장 개발 시간이 오래 걸린 부분은 상품 등록 시 사용하는 에디터 기능 구현이었습니다.
+                      단순한 텍스트 입력만이 아니라, 글꼴 변경 / 이미지 삽입 / 서식 편집 등 다양한 리치 텍스트 기능을 제공해야 했기 때문입니다.
+
+                      처음에는 해당 기능을 직접 구현하려고 시도했지만,
+                      텍스트 입력 기능과 이미지 삽입 기능을 포함한 WYSIWYG 에디터를 단기간 내에 완성하는 것은 현실적으로 어렵다고 판단했습니다.
+
+                      그 과정에서 대체 방안을 검토하던 중, ReactQuill이라는 라이브러리를 발견해 적용하게 되었고
+                      이를 통해 제한된 기간 안에 요구 기능을 구현할 수 있었습니다.
+
+                      다만 이후에 확인해보니 ReactQuill은 업데이트가 중단된 라이브러리였고,
+                      이번 프로젝트에서는 문제없이 사용했지만,
+                      향후에는 라이브러리 선택 시 유지관리 상태와 문서 지원 여부를 더 꼼꼼히 확인해야 한다는 점을 배웠습니다.
+                      `}
                   </p>
                 </details>
               </li>
 
               <li>
                 <details open>
-                  <summary>
-                    React 프로젝트에서 여러 컴포넌트가 공통으로 사용하는 Hook 상태를 매개변수로 전달해야 하는 문제가
-                    발생
-                  </summary>
+                  <summary>프로젝트에서 상태 관리 라이브러리로 Zustand를 사용하신 이유가 무엇인가요?</summary>
                   <p className={styles.solution}>
-                    위 문제를 해결하기 위해, 프로젝트 규모가 크지 않다는 점을 고려하여 Zustand를 도입해 React Hook
-                    상태를 전역적으로 관리하여 문제를 해결하였습니다.
+                    {`프로젝트 규모가 크지 않아 복잡한 상태관리 라이브러리가 필요하지 않았고, 간결한 API로 전역 상태를 관리할 수 있는 Zustand가 가장 적합하다고 판단해 도입했습니다.`}
                   </p>
                 </details>
               </li>
