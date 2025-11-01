@@ -55,7 +55,7 @@ export function PortfolioModal({ setModal }: PortfolioModal) {
 
           {/* 개발 시 발생한 문제점 및 해결방안*/}
           <div className={styles.issueSolutionPairs}>
-            <span className={styles.title}>개발 시 발생한 문제점 및 해결 방안</span>
+            <span className={styles.title}>프로젝트 개발 중 고민한 부분과 해결 방식</span>
 
             <ul className={styles.questionInner}>
               <li>
