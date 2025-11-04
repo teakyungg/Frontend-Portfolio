@@ -11,6 +11,12 @@ export function StudyLog() {
         <span className={styles.titleExplanation}>학습 과정과 실험 내용을 정리한 Notion 페이지입니다.</span>
 
         <div className={styles.NotionLinkBox}>
+          {/* Browser의 동작 속성 정리 페이지 */}
+          <NotionLink
+            title="Browser의 동작"
+            link="https://florentine-soy-ff3.notion.site/Browser-262abb3b12b6805fa812d710f4ca1082?source=copy_link"
+          />
+
           {/* float 속성 정리 페이지 */}
           <NotionLink
             title="float"
