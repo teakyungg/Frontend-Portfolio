@@ -21,7 +21,7 @@ export function Project() {
         categroyClick(item);
       }}
     >
-      {item}
+      <span className={styles.projectTitleText}>{item}</span>
       <div className={nowProjectTitle === item ? styles.nowProjectTitle : styles.defaultProjectTitle}></div>
     </li>
   ));
