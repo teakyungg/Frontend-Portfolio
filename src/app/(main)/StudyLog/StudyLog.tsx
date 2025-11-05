@@ -34,6 +34,12 @@ export function StudyLog() {
             title="position"
             link="https://florentine-soy-ff3.notion.site/position-29babb3b12b6805e8bd2f74165803ffb"
           />
+
+          {/* React 속성 정리 페이지 */}
+          <NotionLink
+            title="React"
+            link="https://florentine-soy-ff3.notion.site/React-2a1abb3b12b68016a562f274b8491b89?source=copy_link"
+          />
         </div>
       </div>
     </section>
