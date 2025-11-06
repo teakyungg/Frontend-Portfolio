@@ -1,17 +1,15 @@
 import { TextStrong } from "@/component/TextStrong/TextStrong";
-import styles from "./Game2048Modal.module.scss";
+import styles from "./ModalDefaultStyle.module.scss";
 import { ProjectModal } from "@/component/ProjectModal/ProjectModal";
+import { ModalDefaultType } from "./ModalDefaultType";
 
-interface Game2048 {
-  setModal: () => void;
-}
-
-export function Game2048Modal({ setModal }: Game2048) {
+export function Game2048Modal({ setModal, src }: ModalDefaultType) {
   return (
     <ProjectModal closeFn={setModal}>
       <div className={styles.modalInner}>
-        {/* 이미지 */}
-        <div className={styles.imageInner}>
+        {/* 메인 이미지 */}
+        <div className={styles.imageInner} style={{ backgroundImage: `url(${src})` }}>
+          {/* 노션 링크 */}
           <a href="https://3lines-2048.netlify.app/" target="blank" className={styles.linkInner}>
             <span className={styles.linkButton}>바로가기</span>
           </a>

@@ -1,17 +1,15 @@
 import { TextStrong } from "@/component/TextStrong/TextStrong";
-import styles from "./KarlyModal.module.scss";
+import styles from "./ModalDefaultStyle.module.scss";
 import { ProjectModal } from "@/component/ProjectModal/ProjectModal";
+import { ModalDefaultType } from "./ModalDefaultType";
 
-interface KarlyModal {
-  setModal: () => void;
-}
-
-export function KarlyModal({ setModal }: KarlyModal) {
+export function KarlyModal({ setModal, src }: ModalDefaultType) {
   return (
     <ProjectModal closeFn={setModal}>
       <div className={styles.modalInner}>
-        {/* karly 이미지 */}
-        <div className={styles.imageInner}>
+        {/* 메인 이미지 */}
+        <div className={styles.imageInner} style={{ backgroundImage: `url(${src})` }}>
+          {/* 노션 링크 */}
           <a href="https://vision-karly.netlify.app/src/item/main" target="blank" className={styles.linkInner}>
             <span className={styles.linkButton}>바로가기</span>
           </a>

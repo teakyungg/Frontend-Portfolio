@@ -1,16 +1,15 @@
 import { TextStrong } from "@/component/TextStrong/TextStrong";
-import styles from "./StarbucksModal.module.scss";
+import styles from "./ModalDefaultStyle.module.scss";
 import { ProjectModal } from "@/component/ProjectModal/ProjectModal";
+import { ModalDefaultType } from "./ModalDefaultType";
 
-interface Starbucks {
-  setModal: () => void;
-}
-
-export function StarbucksModal({ setModal }: Starbucks) {
+export function StarbucksModal({ setModal, src }: ModalDefaultType) {
   return (
     <ProjectModal closeFn={setModal}>
       <div className={styles.modalInner}>
-        <div className={styles.imageInner}>
+        {/* 메인 이미지 */}
+        <div className={styles.imageInner} style={{ backgroundImage: `url(${src})` }}>
+          {/* 노션 링크 */}
           <a href="https://startbycks-teaktung.netlify.app/" target="blank" className={styles.linkInner}>
             <span className={styles.linkButton}>바로가기</span>
           </a>

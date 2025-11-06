@@ -1,20 +1,16 @@
 import { TextStrong } from "@/component/TextStrong/TextStrong";
-import styles from "./PortfolioModal.module.scss";
+import styles from "./ModalDefaultStyle.module.scss";
 import { ProjectModal } from "@/component/ProjectModal/ProjectModal";
 import Image from "next/image";
+import { ModalDefaultType } from "./ModalDefaultType";
 
-interface PortfolioModal {
-  setModal: () => void;
-}
-
-/* 이거 모달 공통된 부분 공용 컴포넌트로 분리하기 */
-
-export function PortfolioModal({ setModal }: PortfolioModal) {
+export function PortfolioModal({ setModal, src }: ModalDefaultType) {
   return (
     <ProjectModal closeFn={setModal}>
       <div className={styles.modalInner}>
         {/* 메인 이미지 */}
-        <div className={styles.imageInner}>
+        <div className={styles.imageInner} style={{ backgroundImage: `url(${src})` }}>
+          {/* 노션 링크 */}
           <a href="https://frontend-portfolio-six-pied.vercel.app/" target="blank" className={styles.linkInner}>
             <span className={styles.linkButton}>바로가기</span>
           </a>
