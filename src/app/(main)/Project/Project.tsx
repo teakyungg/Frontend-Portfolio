@@ -6,59 +6,56 @@ import { projectData } from "./ProjectData";
 import ProjectItem from "@/component/ProjectItem/ProjectItem";
 
 export function Project() {
-  const [nowProjectTitle, setNowProjectTitle] = useState(""); /* 현재 프로젝트 카테고리 */
-  const [modal, setModal] = useState(Array(projectData.length).fill(false)); /* project 항목 */
+  const [selectedCategory, setSelectedCategory] = useState(""); /* 현재 클릭된 프로젝트 카테고리 */
+  const [openId, setOpenId] = useState<string | null>(null); /* 현재 클릭한 모달 */
 
-  const titleText = ["All", "Next.js", "React", "Sub"]; /* 프로젝트 카테고리에 들어갈 항목 */
-
-  /* 프로젝트 카테고리 클릭 시 저장함수 */
-  const categroyClick = (item: string) => {
-    setNowProjectTitle(item);
+  /* 마지막으로 클릭한 카테고리 저장 */
+  const clickCategory = (item: string) => {
+    setSelectedCategory(item);
     sessionStorage.setItem("categroyType", item);
   };
 
-  /* 모달창 열기/닫힘 함수 */
-  const clickModal = (index: number) => {
-    setModal((prev) => prev.map((v, i) => (i === index ? !v : v)));
+  /* 모달창 토글 함수 */
+  const toggleModal = (id: string) => {
+    setOpenId((prev) => (prev === id ? null : id)); // 마지막으로 클릭된 모달창의 "제목"을 저장
   };
 
   /* 프로젝트 카테고리 컴포넌트 */
+  const titleText = ["All", "Next.js", "React", "Sub"]; /* 프로젝트 카테고리에 들어갈 항목 */
   const titleEl = titleText.map((item) => (
     <li
       key={item}
       onClick={() => {
-        categroyClick(item);
+        clickCategory(item);
       }}
     >
       <span className={styles.projectTitleText}>{item}</span>
-      <div className={nowProjectTitle === item ? styles.nowProjectTitle : styles.defaultProjectTitle}></div>
+      <div className={selectedCategory === item ? styles.nowProjectTitle : styles.defaultProjectTitle}></div>
     </li>
   ));
 
-  /* 프로젝트 데이터를 참고해서 컴포넌트들을 가져옴 */
-  const projectList = projectData.map((data, index) => (
+  // 현재 카테고리에 맞는 데이터만 분리
+  const filteredProjects = projectData.filter((category) => category.dataCategory.includes(selectedCategory));
+  const projectItems = filteredProjects.map((data) => (
     <ProjectItem
-      key={data.key}
-      src={data.src}
-      alt={data.alt}
-      title={data.title}
-      titleColor={data.titleColor}
+      key={data.title}
+      imageSrc={data.src}
+      imageAlt={data.alt}
+      projectTitle={data.title}
+      titleTextColor={data.titleColor}
       titleFontFamily={data.titleFontFamily}
-      data-category={data.dataCategory}
-      modal={modal[index]}
-      setModal={() => clickModal(index)}
+      openModal={openId === data.title}
+      setModal={() => toggleModal(data.title)}
     >
-      <data.ModalComponent setModal={() => clickModal(index)} src={data.src} />
+      <data.ModalComponent setModal={() => toggleModal(data.title)} src={data.src} />
     </ProjectItem>
   ));
 
-  /* 가져온 컴포넌트의 data-category를 탐색해서 현재 카테고리에 맞는 컴포넌트만 추출  */
-  const projectItemEl = projectList.filter((item) => item.props["data-category"].includes(nowProjectTitle));
-
   useEffect(() => {
+    // 마지막으로 클릭한 카테고리 불러오기
     let lastcategroy = sessionStorage.getItem("categroyType");
     if (!lastcategroy) lastcategroy = "All";
-    setNowProjectTitle(lastcategroy);
+    setSelectedCategory(lastcategroy);
   }, []);
 
   return (
@@ -72,7 +69,7 @@ export function Project() {
           <ul className={styles.projectTitle}>{titleEl}</ul>
 
           {/* 프로젝트 항목 */}
-          <ul className={styles.projectList}>{projectItemEl}</ul>
+          <ul className={styles.projectList}>{projectItems}</ul>
         </div>
       </div>
     </section>

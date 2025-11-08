@@ -8,7 +8,6 @@ import { PortfolioModal } from "./Modal/PortfolioModal";
 // Modal 폴터에 (모달).tsx 파일 추가한 후 여기에 양식맞게 추가할 것
 
 export interface ProjectItemData {
-  key: string;
   src: string;
   alt: string;
   title: string;
@@ -20,7 +19,6 @@ export interface ProjectItemData {
 
 export const projectData: ProjectItemData[] = [
   {
-    key: "fundream item",
     src: "/fundream.png",
     alt: "fundream image",
     title: "fundream",
@@ -30,7 +28,6 @@ export const projectData: ProjectItemData[] = [
     ModalComponent: FundreamModal,
   },
   {
-    key: "starbuck item",
     src: "/starbucks.png",
     alt: "starbucks image",
     title: "starbucks",
@@ -40,7 +37,6 @@ export const projectData: ProjectItemData[] = [
     ModalComponent: StarbucksModal,
   },
   {
-    key: "2048 item",
     src: "/game_2048.png",
     alt: "2048 image",
     title: "2048",
@@ -50,7 +46,6 @@ export const projectData: ProjectItemData[] = [
     ModalComponent: Game2048Modal,
   },
   {
-    key: "karly item",
     src: "/karly.png",
     alt: "karly image",
     title: "karly",
@@ -60,7 +55,6 @@ export const projectData: ProjectItemData[] = [
     ModalComponent: KarlyModal,
   },
   {
-    key: "portfolio item",
     src: "/portfolio.png",
     alt: "portfolio image",
     title: "portfolio",
