@@ -3,7 +3,7 @@ import { Game2048Modal } from "./Modal/Game2048Modal";
 import { StarbucksModal } from "./Modal/StarbucksModal";
 import { FundreamModal } from "./Modal/FundreamModal";
 import { PortfolioModal } from "./Modal/PortfolioModal";
-import { WonLab } from "./Modal/WonLab";
+import { WonLabModal } from "./Modal/WonLabMadal";
 
 // 데이터 추가 시
 // Modal 폴터에 (모달).tsx 파일 추가한 후 여기에 양식맞게 추가할 것
@@ -62,7 +62,7 @@ export const projectData: ProjectItemData[] = [
     titleColor: "black",
     titleFontFamily: "",
     dataCategory: ["All", "Personal"],
-    ModalComponent: WonLab,
+    ModalComponent: WonLabModal,
   },
   {
     src: "/portfolio.png",
