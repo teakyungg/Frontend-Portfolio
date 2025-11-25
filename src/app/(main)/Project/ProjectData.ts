@@ -3,6 +3,7 @@ import { Game2048Modal } from "./Modal/Game2048Modal";
 import { StarbucksModal } from "./Modal/StarbucksModal";
 import { FundreamModal } from "./Modal/FundreamModal";
 import { PortfolioModal } from "./Modal/PortfolioModal";
+import { WonLab } from "./Modal/WonLab";
 
 // 데이터 추가 시
 // Modal 폴터에 (모달).tsx 파일 추가한 후 여기에 양식맞게 추가할 것
@@ -24,7 +25,7 @@ export const projectData: ProjectItemData[] = [
     title: "fundream",
     titleColor: "rgb(9, 31, 176)",
     titleFontFamily: "Cafe24Surround",
-    dataCategory: ["All", "Next.js"],
+    dataCategory: ["All", "Team"],
     ModalComponent: FundreamModal,
   },
   {
@@ -33,7 +34,7 @@ export const projectData: ProjectItemData[] = [
     title: "starbucks",
     titleColor: "green",
     titleFontFamily: "Aggravo",
-    dataCategory: ["All", "Sub"],
+    dataCategory: ["All", "Personal"],
     ModalComponent: StarbucksModal,
   },
   {
@@ -42,7 +43,7 @@ export const projectData: ProjectItemData[] = [
     title: "2048",
     titleColor: "rgb(44, 62, 80)",
     titleFontFamily: "Paperozi",
-    dataCategory: ["All", "Sub"],
+    dataCategory: ["All", "Team"],
     ModalComponent: Game2048Modal,
   },
   {
@@ -51,8 +52,17 @@ export const projectData: ProjectItemData[] = [
     title: "karly",
     titleColor: "purple",
     titleFontFamily: "YeongwolTTF-Regular",
-    dataCategory: ["All", "Sub"],
+    dataCategory: ["All", "Team"],
     ModalComponent: KarlyModal,
+  },
+  {
+    src: "/WonLab.png",
+    alt: "WonLab.png image",
+    title: "WonLab",
+    titleColor: "black",
+    titleFontFamily: "",
+    dataCategory: ["All", "Personal"],
+    ModalComponent: WonLab,
   },
   {
     src: "/portfolio.png",
@@ -60,7 +70,7 @@ export const projectData: ProjectItemData[] = [
     title: "portfolio",
     titleColor: "black",
     titleFontFamily: "SfHambakneun",
-    dataCategory: ["All", "Next.js"],
+    dataCategory: ["All", "Personal"],
     ModalComponent: PortfolioModal,
   },
 ];

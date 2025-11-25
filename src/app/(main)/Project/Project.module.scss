@@ -20,8 +20,13 @@
     justify-content: space-around;
     padding: 20px 0px;
 
-    width: 1200px;
+    width: 100%;
     font-size: 40px;
+
+    li {
+      width: 200px;
+      text-align: center;
+    }
 
     .projectTitleText {
       cursor: pointer;

@@ -21,7 +21,7 @@ export function Project() {
   };
 
   /* 프로젝트 카테고리 컴포넌트 */
-  const titleText = ["All", "Next.js", "React", "Sub"]; /* 프로젝트 카테고리에 들어갈 항목 */
+  const titleText = ["All", "Team", "Personal"]; /* 프로젝트 카테고리에 들어갈 항목 */
   const titleEl = titleText.map((item) => (
     <li
       key={item}
