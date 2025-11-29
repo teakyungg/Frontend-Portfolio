@@ -1,0 +1,65 @@
+.intro {
+  width: 100%;
+  padding-top: 62px;
+  position: relative;
+}
+
+.inner{
+  margin: 0 auto;
+  width: 1000px;
+  height: 900px;
+
+  border-bottom: 1px solid white;
+}
+
+.title, .name, .goal, .gitHub{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.title {
+  color: gray;
+  font-size: 160px;
+  font-family: "YeongwolTTF-Regular";
+  font-weight: 600;
+}
+
+.name {
+  font-size: 36px;
+  color: white;
+  font-weight: bold;
+
+  & > span:first-child {
+    font-size: 60px;
+  }
+
+  & > span:last-child {
+    font-size: 40px;
+  }
+}
+
+.goal {
+  font-size: 20px;
+  color: gray;
+
+  & > span{
+    display: block;
+    text-align: center;
+  }
+
+  & > span:first-child{
+    padding-bottom: 10px;
+  }
+
+  & > strong {
+    font-size: 25px;
+  }
+}
+
+.gitHub {
+  width: 40px;
+  aspect-ratio: 1/1;
+}
