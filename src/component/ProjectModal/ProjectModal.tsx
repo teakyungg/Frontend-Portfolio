@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "./ProjectModal.module.scss";
+import styles from "./ProjectModal.module.css";
 
 interface ProjectModal {
   children: React.ReactNode;
@@ -8,15 +8,16 @@ interface ProjectModal {
 
 export function ProjectModal({ children, closeFn }: ProjectModal) {
   return (
-    /* 모달창 전체 배경 */
-    <div className={styles.karlyOverlay} onClick={closeFn}>
-      {/* 모달창 내용 부분 */}
-      <div className={styles.karlyModalInner} onClick={(e) => e.stopPropagation()}>
+    /* 뒷 배경 */
+    <div className={styles.overLay} onClick={closeFn}>
+
+      {/* 모달창 내용 */}
+      <div className={styles.inner} onClick={(e) => e.stopPropagation()}>
         {/* x 버튼 */}
         <Image
           src={"/closeButton.png"}
-          width={40}
-          height={40}
+          width={20}
+          height={20}
           alt="close button image"
           className={styles.closeButton}
           onClick={closeFn}
