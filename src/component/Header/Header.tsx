@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
-import styles from "./Header.module.scss";
-
+import styles from "./Header.module.css";
 
 export default function Header() {
   const linkName = ["Project", "Skill", "StudyLog", "About"]; // 링크 제목
@@ -14,15 +13,24 @@ export default function Header() {
     });
   };
 
-  const linkEl = linkName.map((i, index) => (
-    <li key={i} onClick={() => { scrollToCustomPosition(index);}}>{i}</li>
+  const linkItem = linkName.map((i, index) => (
+    <li
+      key={i}
+      onClick={() => {
+        scrollToCustomPosition(index);
+      }}
+    >
+      {i}
+    </li>
   ));
 
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link href={"/"} className={styles.title}>PORTFOLIO</Link>
-        <ul className={styles.list}>{linkEl}</ul>
+        <Link href={"/"} className={styles.title}>
+          PORTFOLIO
+        </Link>
+        <ul className={styles.list}>{linkItem}</ul>
       </div>
     </header>
   );

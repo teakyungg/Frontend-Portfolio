@@ -3,8 +3,9 @@
   height: 120px;
   min-width: 700px;
 
-  border-bottom: 1px solid white;
-  background-color: var(--background);
+  border-bottom: 1px solid rgb(168, 157, 157);
+  background-color: var(--basic-background);
+  color: white;
 
   position: fixed;
   z-index: 999;
@@ -13,13 +14,13 @@
 .inner {
   width: 80%;
   height: 100%;
+
   padding: 16px 0;
+  margin: 0 auto;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin: auto;
 }
 
 .title {
@@ -30,14 +31,14 @@
 .list {
   display: flex;
 
-  * {
+  li {
     cursor: pointer;
     font-family: "YeongwolTTF-Regular";
     font-size: 20px;
     padding: 20px;
   }
 
-  *:hover {
+  li:hover {
     font-weight: bold;
   }
 }
