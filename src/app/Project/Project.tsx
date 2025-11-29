@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./Project.module.scss";
+import styles from "./Project.module.css";
 import { projectData } from "./ProjectData";
 import ProjectItem from "@/component/ProjectItem/ProjectItem";
 
@@ -64,13 +64,11 @@ export function Project() {
         {/* 프로젝트 */}
         <h1 className={styles.title}>Project</h1>
 
-        <div>
-          {/* 프로젝트 카테고리 */}
-          <ul className={styles.projectTitle}>{titleEl}</ul>
+        {/* 프로젝트 카테고리 */}
+        <ul className={styles.projectCategory}>{titleEl}</ul>
 
-          {/* 프로젝트 항목 */}
-          <ul className={styles.projectList}>{projectItems}</ul>
-        </div>
+        {/* 프로젝트 항목 */}
+        <ul className={styles.projectList}>{projectItems}</ul>
       </div>
     </section>
   );
