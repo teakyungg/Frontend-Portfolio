@@ -1,18 +1,21 @@
-@import "tailwindcss";
 @import "./fonts.css";
 
 :root {
-  --background: #000000;
-  --basecolor: rgb(229, 231, 235);
-  --graycolor: rgb(156, 163, 175);
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-basecolor: var(--basecolor);
-  --color-graycolor: var(--graycolor);
+  --basic-background: #000000;
 }
 
 * {
   font-family: "Pretendard-Regular", serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--basic-background);
+}
+
+a {
+  color: inherit;
 }
