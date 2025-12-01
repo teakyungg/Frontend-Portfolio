@@ -40,6 +40,12 @@ export function StudyLog() {
             title="React"
             link="https://florentine-soy-ff3.notion.site/React-2a1abb3b12b68016a562f274b8491b89?source=copy_link"
           />
+
+          {/* z-index 정리 페이지 */}
+          <NotionLink
+            title="Z-index"
+            link="https://florentine-soy-ff3.notion.site/z-index-2bbabb3b12b6808eaa40f099a66acd32?pvs=73"
+          />
         </div>
       </div>
     </section>
