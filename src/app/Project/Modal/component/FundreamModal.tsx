@@ -1,55 +1,40 @@
 import { TextStrong } from "@/component/TextStrong/TextStrong";
-import styles from "./ModalDefaultStyle.module.css";
+import styles from "../ModalStyle.module.css";
 import { ProjectModal } from "@/component/ProjectModal/ProjectModal";
 import { ModalDefaultType } from "../ModalType";
 
 export function FundreamModal({ setModal, src }: ModalDefaultType) {
+
+  // 사용 기술
+  const skills = ['Next.js', 'React', 'TypeScirpt', 'Git', 'GitHub', 'Prettier', 'Zustand', '팀 프로젝트'];
+  const skillEl = skills.map((skill) => <li key={skill}><TextStrong>{skill}</TextStrong></li>);
+
   return (
     <ProjectModal closeFn={setModal}>
       <div className={styles.modalInner}>
         {/* 메인 이미지 */}
-        <div className={styles.imageInner} style={{ backgroundImage: `url(${src})` }}>
-          {/* 노션 링크 */}
-          <a href="https://final-11-cutie.vercel.app/" target="blank" className={styles.linkInner}>
+        <div className={styles.mainImage} style={{ backgroundImage: `url(${src})` }}>
+          <a href="https://final-11-cutie.vercel.app/" target="blank">
             <span className={styles.linkButton}>바로가기</span>
           </a>
-        </div>
+        </div> 
 
         {/* 내용 */}
-        <div className={styles.textInner}>
+        <div className={styles.contentInner}>
           {/* 사용 기술 */}
-          <div className={styles.techStackInner}>
+          <div>
             <span>사용 기술 :</span>
-            <ul className={styles.stackList}>
-              <li>
-                <TextStrong>Prettier</TextStrong>
-              </li>
-              <li>
-                <TextStrong>TypeScirpt</TextStrong>
-              </li>
-              <li>
-                <TextStrong>React</TextStrong>
-              </li>
-              <li>
-                <TextStrong>Next.js</TextStrong>
-              </li>
-              <li>
-                <TextStrong>Zustand</TextStrong>
-              </li>
-              <li>
-                <TextStrong>팀 프로젝트</TextStrong>
-              </li>
-            </ul>
+            <ul className={styles.stackList}>{skillEl}</ul>
           </div>
 
           {/* 개발 시 발생한 문제점 및 해결방안*/}
-          <div className={styles.issueSolutionPairs}>
+          <div>
             <span className={styles.title}>프로젝트 개발 중 고민한 부분과 해결 방식</span>
 
-            <ul className={styles.questionInner}>
+            <ul className={styles.qna}>
               <li>
                 <details open>
-                  <summary>현재 프로젝트를 Next.js로 개발하신 이유가 있을까요?</summary>
+                  <summary className={styles.question}>현재 프로젝트를 Next.js로 개발하신 이유가 있을까요?</summary>
                   <p className={styles.solution}>
                     {`현재 프로젝트는 쇼핑몰 웹사이트 구축을 목표로 하고 있으며,
                       제품 노출과 트래픽 확보를 위해 검색 엔진 최적화(SEO)가 중요한 핵심 요구사항이었습니다.
@@ -63,9 +48,7 @@ export function FundreamModal({ setModal, src }: ModalDefaultType) {
 
               <li>
                 <details open>
-                  <summary>
-                    현재 프로젝트에서 가장 개발 시간이 많이 소요된 부분은 무엇이며, 어떤 방식으로 해결하셨나요?
-                  </summary>
+                  <summary className={styles.question}>현재 프로젝트에서 가장 개발 시간이 많이 소요된 부분은 무엇이며, 어떤 방식으로 해결하셨나요?</summary>
                   <p className={styles.solution}>
                     {`프로젝트에서 가장 개발 시간이 오래 걸린 부분은 상품 등록 시 사용하는 에디터 기능 구현이었습니다.
                       단순한 텍스트 입력만이 아니라, 글꼴 변경 / 이미지 삽입 / 서식 편집 등 다양한 리치 텍스트 기능을 제공해야 했기 때문입니다.
@@ -86,7 +69,7 @@ export function FundreamModal({ setModal, src }: ModalDefaultType) {
 
               <li>
                 <details open>
-                  <summary>프로젝트에서 상태 관리 라이브러리로 Zustand를 사용하신 이유가 무엇인가요?</summary>
+                  <summary className={styles.question}>프로젝트에서 상태 관리 라이브러리로 Zustand를 사용하신 이유가 무엇인가요?</summary>
                   <p className={styles.solution}>
                     {`프로젝트 규모가 크지 않아 복잡한 상태관리 라이브러리가 필요하지 않았고, 간결한 API로 전역 상태를 관리할 수 있는 Zustand가 가장 적합하다고 판단해 도입했습니다.`}
                   </p>

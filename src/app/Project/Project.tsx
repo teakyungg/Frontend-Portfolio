@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./Project.module.css";
+import styles from "./ModalList/Project.module.css";
 import { projectList } from "./ModalList/ProjectList";
 import ProjectItem from "@/component/ProjectItem/ProjectItem";
 
