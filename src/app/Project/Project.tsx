@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./Project.module.css";
-import { projectData } from "./ProjectData";
+import { projectList } from "./ModalList/ProjectList";
 import ProjectItem from "@/component/ProjectItem/ProjectItem";
 
 export function Project() {
@@ -35,7 +35,7 @@ export function Project() {
   ));
 
   // 현재 카테고리에 맞는 데이터만 분리
-  const filteredProjects = projectData.filter((category) => category.dataCategory.includes(selectedCategory));
+  const filteredProjects = projectList.filter((category) => category.dataCategory.includes(selectedCategory));
   const projectItems = filteredProjects.map((data) => (
     <ProjectItem
       key={data.title}

@@ -1,7 +1,7 @@
 import { TextStrong } from "@/component/TextStrong/TextStrong";
 import styles from "./ModalDefaultStyle.module.css";
 import { ProjectModal } from "@/component/ProjectModal/ProjectModal";
-import { ModalDefaultType } from "./ModalDefaultType";
+import { ModalDefaultType } from "../ModalType";
 
 export function StarbucksModal({ setModal, src }: ModalDefaultType) {
   return (

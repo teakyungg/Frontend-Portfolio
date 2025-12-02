@@ -1,24 +1,21 @@
-import { KarlyModal } from "./Modal/KarlyModal";
-import { Game2048Modal } from "./Modal/Game2048Modal";
-import { StarbucksModal } from "./Modal/StarbucksModal";
-import { FundreamModal } from "./Modal/FundreamModal";
-import { PortfolioModal } from "./Modal/PortfolioModal";
-import { WonLabModal } from "./Modal/WonLabMadal";
-
-// 데이터 추가 시
-// Modal 폴터에 (모달).tsx 파일 추가한 후 여기에 양식맞게 추가할 것
+import { KarlyModal } from "../Modal/component/KarlyModal";
+import { Game2048Modal } from "../Modal/component/Game2048Modal";
+import { StarbucksModal } from "../Modal/component/StarbucksModal";
+import { FundreamModal } from "../Modal/component/FundreamModal";
+import { PortfolioModal } from "../Modal/component/PortfolioModal";
+import { WonLabModal } from "../Modal/component/WonLabMadal";
 
 export interface ProjectItemData {
-  src: string;
-  alt: string;
-  title: string;
-  titleColor: string;
-  titleFontFamily: string;
-  dataCategory: string[];
-  ModalComponent: React.ComponentType<{ setModal: () => void; src: string }>;
+  src: string; // 대표 이미지 주소
+  alt: string; // 이미지 보조 설명 
+  title: string; // 제목
+  titleColor: string; // 제목 색깔
+  titleFontFamily: string; // 제목 글꼴
+  dataCategory: string[]; // 분류 태그
+  ModalComponent: React.ComponentType<{ setModal: () => void; src: string }>; // 클릭 시 나올 모달
 }
 
-export const projectData: ProjectItemData[] = [
+export const projectList: ProjectItemData[] = [
   {
     src: "/fundream.png",
     alt: "fundream image",
