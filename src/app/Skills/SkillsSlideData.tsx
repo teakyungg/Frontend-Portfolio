@@ -1,4 +1,4 @@
-import styles from "./Skills.module.scss";
+import styles from "./Skills.module.css";
 import { SwiperSlide } from "swiper/react";
 
 export default function SkillsSlideData() {
