@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "./ProjectItem.module.scss";
+import styles from "./ProjectItem.module.css";
 import Image from "next/image";
 
 interface ProjectItem {

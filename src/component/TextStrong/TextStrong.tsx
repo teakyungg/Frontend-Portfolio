@@ -1,4 +1,4 @@
-import style from "./TextStrong.module.scss";
+import style from "./TextStrong.module.css";
 
 interface TextStrong {
   children: React.ReactNode;
