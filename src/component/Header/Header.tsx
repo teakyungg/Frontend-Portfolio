@@ -4,7 +4,7 @@ import styles from "./Header.module.css";
 
 export default function Header() {
   const linkName = ["Project", "Skill", "StudyLog", "About"]; // 링크 제목
-  const scrollLoction = [800, 1700, 2250, 2750]; // 버튼 클릭 시 스크롤 포지션
+  const scrollLoction = [850, 1500, 2000, 2520]; // 버튼 클릭 시 스크롤 포지션
 
   const scrollToCustomPosition = (i: number) => {
     window.scrollTo({
@@ -14,14 +14,7 @@ export default function Header() {
   };
 
   const linkItem = linkName.map((i, index) => (
-    <li
-      key={i}
-      onClick={() => {
-        scrollToCustomPosition(index);
-      }}
-    >
-      {i}
-    </li>
+    <li key={i} onClick={() => {scrollToCustomPosition(index);}}>{i}</li>
   ));
 
   return (
