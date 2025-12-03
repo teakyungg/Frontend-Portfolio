@@ -1,61 +1,40 @@
-import styles from "./AboutMe.module.scss";
-
-interface ContentTextProps {
-  title?: string;
-  content?: string;
-  titleTextSize?: number;
-  contentTextSize?: number;
-}
+import styles from "./AboutMe.module.css";
 
 export function AboutMe() {
+
+  const introductionData = [
+    '웹 프론트엔드 개발을 공부하며, 화면을 구조적으로 구성하고 사용자 경험을 개선하는 일에 큰 흥미를 가지고 있습니다.',
+    '다양한 언어를 경험해 온 과정 속에서 즉각적인 피드백과 상호작용을 만드는 프론트엔드 분야에 매력을 느껴 집중적으로 학습 중입니다.',
+    '시멘틱 마크업과 접근성을 고려한 HTML 구조, SCSS 설계, 그리고 유지보수성 높은 컴포넌트 기반 UI 제작을 중요하게 생각합니다.',
+    'JavaScript(ES6), SCSS, Vite, React, Next.js를 활용해 실제 웹 페이지를 분석하고 구현하며 문제 해결 능력을 쌓고 있습니다.',
+    '더 나은 사용자 경험을 제공하는 개발자를 목표로 하며, 새로운 기술을 배우고 직접 만들어보는 과정을 즐깁니다.'
+  ];
+
+  const introductionEl = introductionData.map((value,index) => <li key={index}>{value}</li>);
+
+
+  const privacyData = [
+    {title: '이름', text: '김태경'},
+    {title: '이메일', text: 'rlaxorud8532@gmail.com'},
+    {title: '주소', text: '경기도 오산시'},
+    {title: '대학교', text: '평택대학교 융합소프트웨어 학과'},
+  ];
+  
+  const privacyEl = privacyData.map(value => <li key={value.title}>
+    <dt>{value.title}</dt>
+    <dd>{value.text}</dd>
+  </li>);
+
   return (
     <section>
-      <div className={styles.aboutMe}>
+      <div className={styles.AboutMeinner}>
         <h2 className={styles.title}>About Me</h2>
 
         <div className={styles.content}>
-          {/* 프론트 엔드 시작 이유 */}
-          <ContentBox>
-            <ContentText
-              title="프론트엔드를 시작하게된 이유는?"
-              content={`처음에는 단순한 정보 전달용 웹페이지를 제작했지만, 스타일 관리의 비효율성을 느끼며 CSS를 배우게 되었습니다. 이후 사용자와 상호작용하는 웹을 만들고 싶어 JavaScript를 익혔고, 더 효율적인 개발을 위해 React와 Next.js를 접하며 프론트엔드 개발자의 길을 걷게 되었습니다.`}
-            />
-          </ContentBox>
-
-          {/* 목표 */}
-          <ContentBox>
-            <ContentText
-              title="목표는?"
-              content={`사용자가 원하는 기능을 모두 구현하는 것, 최적화가 잘 된 웹페이지를 만드는 것이 목표입니다.`}
-            />
-          </ContentBox>
-
-          {/* Contact */}
-          <ContentBox>
-            <ContentText title="Contact" />
-
-            <div className={styles.privacy}>
-              <ContentText title="이름" content="김태경" titleTextSize={20} />
-              <ContentText title="이메일" content="rlaxorud8532@gmail.com" titleTextSize={20} />
-              <ContentText title="주소" content="경기도 오산시" titleTextSize={20} />
-              <ContentText title="대학교" content="평택대학교 융합소프트웨어 학과 졸업" titleTextSize={20} />
-            </div>
-          </ContentBox>
+          <ul className={styles.introduction}>{introductionEl}</ul>
+          <ul className={styles.privacy}>{privacyEl}</ul>  
         </div>
       </div>
     </section>
-  );
-}
-
-function ContentBox({ children }: { children: React.ReactNode }) {
-  return <div className={styles.contentBox}>{children}</div>;
-}
-
-function ContentText({ title, content, titleTextSize, contentTextSize }: ContentTextProps) {
-  return (
-    <div className={styles.contentText}>
-      <span style={{ fontSize: titleTextSize ? `${titleTextSize}px` : "25px" }}>{title}</span>
-      <p style={{ fontSize: contentTextSize ? `${contentTextSize}px` : "16px" }}>{content}</p>
-    </div>
   );
 }

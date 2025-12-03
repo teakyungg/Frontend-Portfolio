@@ -1,0 +1,52 @@
+.AboutMeinner {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 80px 0px;
+  border-bottom: 1px solid;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.content {
+  width: 80%;
+  padding-top: 25px;
+  font-size: 18px;
+
+  &>*{
+    background-color: #11182780;
+    border-radius: 24px;
+    padding: 30px;
+    line-height: 25px;
+  }
+}
+
+.introduction{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.privacy{
+  margin-top: 30px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  
+  text-align: center;
+
+  dt{
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  dd{
+    padding: 10px;
+  }
+}
