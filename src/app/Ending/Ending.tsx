@@ -1,4 +1,4 @@
-import styles from "./Ending.module.scss";
+import styles from "./Ending.module.css";
 
 export function Ending() {
   return (
