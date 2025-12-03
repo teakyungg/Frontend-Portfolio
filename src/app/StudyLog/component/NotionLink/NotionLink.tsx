@@ -1,4 +1,4 @@
-import styles from "./Notion.module.scss";
+import styles from "./Notion.module.css";
 
 interface NotionLink {
   title: string /* 링크 제목 */;
