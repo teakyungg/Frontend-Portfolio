@@ -1,9 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import styles from "./Mail.module.scss";
-
-/* 메일 클립 보드에 복사하는 기능 넣기 */
+import styles from "./Mail.module.css";
 
 export function Mail() {
   const mailAddress = useRef<null | HTMLDivElement>(null);
@@ -21,19 +19,23 @@ export function Mail() {
 
   return (
     <aside className={styles.mailInner}>
-      {/* 메일 바로 보내기 */}
-      <div className={styles.list}>
+      <div className={styles.mailItem}>
         <a
-          className={`${styles.mailLink} ${styles.mailLinkImage}`}
+          className={styles.mailLink}
+          style={{backgroundImage: 'url("/mailSend.png")'}}
           href="mailto:rlaxorud8532@gmail.com"
           target="_blank"
         ></a>
         <span className={styles.title}>메일 바로 보내기</span>
       </div>
 
-      {/* 메일 클립 보드 복사하기 */}
-      <div className={styles.list}>
-        <div className={`${styles.mailLink} ${styles.mailImage}`} ref={mailAddress} onClick={copyAddress}></div>
+      <div className={styles.mailItem}>
+        <div 
+          className={styles.mailLink} 
+          ref={mailAddress} 
+          onClick={copyAddress}
+          style={{backgroundImage: 'url("/mail.png")', backgroundSize: "70%", cursor: "pointer"}}
+          ></div>
         <span className={styles.title}>메일 주소 복사하기</span>
       </div>
     </aside>
