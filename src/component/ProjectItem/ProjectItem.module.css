@@ -9,11 +9,8 @@
   font-size: 20px;
   font-weight: 600;
   text-align: center;
+  padding: 5px;
 
   background-color: rgb(230, 230, 230);
   border-radius: 16px;
-}
-
-.image {
-  height: 150px;
 }
