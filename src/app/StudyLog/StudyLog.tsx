@@ -13,6 +13,7 @@ export function StudyLog() {
     {title: "position", link: "https://florentine-soy-ff3.notion.site/position-29babb3b12b6805e8bd2f74165803ffb"},
     {title: "z-index", link: "https://florentine-soy-ff3.notion.site/z-index-2bbabb3b12b6808eaa40f099a66acd32?pvs=73"},
     {title: "box-sizing", link: "https://florentine-soy-ff3.notion.site/box-sizing-2beabb3b12b6800fa2cfd1225d682023"},
+    {title: "display", link: "https://florentine-soy-ff3.notion.site/display-2bfabb3b12b680a3ad3ee4d8dbfb82d0#2bfabb3b12b680d38819d0f1352c5df2"},
     {title: "React", link: "https://florentine-soy-ff3.notion.site/React-2a1abb3b12b68016a562f274b8491b89?source=copy_link"},
   ];
 
