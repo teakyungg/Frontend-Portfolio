@@ -1,4 +1,4 @@
-import { TextStrong } from "@/component/TextStrong/TextStrong";
+import { TextStrong } from "@/component/Highlight/Highlight";
 import styles from "../ModalStyle.module.css";
 import { ProjectModal } from "@/component/ProjectModal/ProjectModal";
 import { ModalDefaultType } from "../ModalType";

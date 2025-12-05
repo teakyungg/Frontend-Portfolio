@@ -1,4 +1,4 @@
-import style from "./TextStrong.module.css";
+import style from "./Highlight.module.css";
 
 interface TextStrong {
   children: React.ReactNode;
@@ -6,7 +6,7 @@ interface TextStrong {
 }
 
 /* 문자열 강조 */
-export function TextStrong({ children, fontBold = true }: TextStrong) {
+export function Highlight({ children, fontBold = true }: TextStrong) {
   return (
     <span className={style.textStrong} style={{ fontWeight: fontBold ? "bold" : "normal" }}>
       {children}

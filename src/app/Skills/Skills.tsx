@@ -5,7 +5,7 @@ import { Swiper } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import SkillsSlideData from "./SkillsSlideData";
 import "swiper/css";
-import { TextStrong } from "@/component/TextStrong/TextStrong";
+import { Highlight } from "@/component/Highlight/Highlight";
 
 export function Skills() {
   /* silde 이미지 데이터 */
@@ -20,7 +20,7 @@ export function Skills() {
   ]
 
   const skillEl = skillData.map(value => <li key={value.name}>
-    {value.name}: {value.data.map((dataValue, index) => <TextStrong key={index}>{dataValue}</TextStrong>)}
+    {value.name}: {value.data.map((dataValue, index) => <Highlight key={index}>{dataValue}</Highlight>)}
   </li>)
 
   return (
