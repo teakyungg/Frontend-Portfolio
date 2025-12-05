@@ -2,6 +2,7 @@
 
 :root {
   --basic-background: #000000;
+  --header-height: 120px;
 }
 
 * {
