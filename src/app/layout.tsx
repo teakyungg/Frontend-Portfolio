@@ -1,5 +1,4 @@
 import "./globals.css";
-import Header from "@/component/Header/Header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,12 +11,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const Style = "bg-background text-basecolor";
-
+ 
   return (
     <html lang="ko">
-      <body className={Style}>
-        <Header />
+      <body>
         {children}
       </body>
     </html>
