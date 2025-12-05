@@ -21,7 +21,7 @@ export default function ProjectItem({
 
   return (
     <li>
-      <Link href={projectTitle} className={styles.projectItem}>
+      <Link href={'Project/' + projectTitle} className={styles.projectItem}>
         <Image src={imageSrc} alt={imageAlt} width={235} height={134} />
         <p className={styles.title} style={{ color: titleTextColor, fontFamily: titleFontFamily }}>
           {projectTitle}
