@@ -74,6 +74,20 @@ export default function Karly() {
                        비기능적 요구사항(접근성, SEO, 크로스 브라우징)을 별도 목표로 두고 개선 작업을 진행했습니다`}
                     </div>
                 </div>
+
+                 <div className={style.desc}>
+                    <div className={style.descTitle}>페이지 검증</div>
+
+                    <Image src={'/karly/lighthouse.png'} width={384} height={361} alt="karly light house"/>
+                    
+                    <div className={style.descContent}> 
+                    {`만들어진 웹 페이지의 품질을 검증하기 위해 Google Lighthouse로 성능·접근성·SEO 등 주요 항목을 분석하였으며, 
+                      평균 95.25점이라는 높은 평가를 받았습니다. 이를 통해 전반적인 웹 성능과 구조가 표준에 맞게 구현되었음을 확인할 수 있었습니다.
+
+                      또한 Chrome, Firefox, Microsoft Edge 등 주요 브라우저에서 호환성 테스트를 진행한 결과, 
+                      모든 기능이 정상적으로 동작하며 UI가 동일하게 렌더링되는 것을 검증했습니다.`}
+                    </div>
+                </div>
             </div>
         </div>
     )
