@@ -10,7 +10,7 @@ import Header from "@/component/Header/Header";
 export default function Main() {
   return (
     <>
-     <Header/>
+      <Header/>
       <Intro />
       <Project />
       <Skills />

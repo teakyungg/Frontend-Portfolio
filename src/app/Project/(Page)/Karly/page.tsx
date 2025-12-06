@@ -2,7 +2,6 @@ import { Highlight } from "@/component/Highlight/Highlight";
 import style from "../page.module.css";
 import Image from "next/image";
 
-// 완성후 modal 폴터 지우기
 export default function Karly() {
 
     const skillData = ['Vite', 'TailWind CSS', 'Git', 'GitHub', 'Prettier', '팀 프로젝트'];
