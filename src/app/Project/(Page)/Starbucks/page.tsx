@@ -22,6 +22,9 @@ export default function Starbucks() {
             {/* 내용 */}
             <div className={style.projectDesc}>
                 <div className={style.mainTitle}>starbucks</div>
+                <div className={style.descContent} style={{position:"relative", bottom:"20px"}}>
+                    {`Starbucks 프로젝트는 GSAP ScrollTrigger와 Swiper를 활용해 실무형 인터랙션을 구현한 랜딩 페이지 프로젝트입니다.`}
+                </div>
 
                 <div className={style.skill}>
                     <span>프로젝트 특징 :</span>
