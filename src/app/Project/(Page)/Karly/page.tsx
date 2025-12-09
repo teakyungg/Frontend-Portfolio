@@ -22,29 +22,33 @@ export default function Karly() {
             {/* 내용 */}
             <div className={style.projectDesc}>
                 <div className={style.mainTitle}>karly</div>
+                <div className={style.descContent} style={{position:"relative", bottom:"20px"}}>
+                    {`Karly 프로젝트는 마켓컬리 UI를 클론하며 반응형 레이아웃, Tailwind 테마 변수, 그리고 접근성을 고려한 UI 구조를 구현한 팀 프로젝트입니다.`}
+                </div>
 
                 <div className={style.skill}>
                     <span>프로젝트 특징 :</span>
                     <ul className={style.skillList}>{skillItem}</ul>
+                    <div style={{paddingTop:"20px"}}>(팀 프로젝트에서 제가 담당한 부분만 서술하였습니다.)</div>
                 </div>
 
                 <div className={style.desc}>
-                    <div className={style.descTitle}>UI 스타일을 일관성 확보: TailWind 도입</div>
+                    <div className={style.descTitle}>Vite MPA 환경 & 컴포넌트 구조 설계</div>
                     <div className={style.descContent}>
-                    {`초기 회의 단계에서, 팀원마다 사용하는 px/rem/em 단위 및 여백·폰트 크기 기준이 달라질 경우 UI 전체의 일관성이 무너질 수 있다는 문제를 파악했습니다. 
-                      이를 해결하기 위해 Tailwind CSS를 도입하여 스타일 규칙을 프리셋 기반으로 통일했고, 결과적으로 디자인 일관성 확보와 개발 속도 개선 효과를 얻었습니다.`}</div>
+                    {`초기에는 필요한 페이지를 모두 import로 직접 등록하는 방식이었기 때문에,
+                      페이지가 추가될 때마다 설정을 수정해야 하는 비효율성이 있었습니다.
+
+                      이를 개선하기 위해, 프로젝트의 HTML 파일들이 모두 특정 경로(src) 아래에 위치한다는 점에 착안하여
+                      vite.config.js에서 findAllHtmlFiles 유틸을 구현해 src 내부의 모든 HTML 파일을 자동으로 검색하고
+                      (멀티 페이지) 입력으로 등록되도록 구성했습니다.
+
+                      또한 @tailwindcss/vite 플러그인과 appType: 'mpa' 설정을 함께 적용해,
+                      각 HTML 파일이 독립적인 페이지로 빌드되고 필요한 CSS도 페이지 단위로 생성되도록 개발 환경을 구축했습니다.
+                    `}</div>
                 </div>
 
                 <div className={style.desc}>
-                    <div className={style.descTitle}>Tailwind 테마 변수(Theme variables) 활용</div>
-                    <Image src={'/karly/css variables.png'} width={547} height={402} alt="karly css variables"/>
-                    <div className={style.descContent}> 
-                    {`전역 테마 변수를 최상위 레벨에서 선언해 디자인 일관성을 확보하고 개발 효율성을 개선했습니다.`}
-                    </div>
-                </div>
-
-                <div className={style.desc}>
-                    <div className={style.descTitle}>Gird, Flex를 사용한 반응형 구현</div>
+                    <div className={style.descTitle}>Grid, Flex를 사용한 반응형 구현</div>
 
                     <div>
                         <Image src={'/karly/pc.png'} width={580} height={300} alt="karly pc"/>
@@ -74,7 +78,7 @@ export default function Karly() {
                     </div>
                 </div>
 
-                 <div className={style.desc}>
+                <div className={style.desc}>
                     <div className={style.descTitle}>페이지 검증</div>
 
                     <Image src={'/karly/lighthouse.png'} width={384} height={361} alt="karly light house"/>
