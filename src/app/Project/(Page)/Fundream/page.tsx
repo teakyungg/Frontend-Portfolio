@@ -38,6 +38,10 @@ export default function Fundream() {
             {/* 내용 */}
             <div className={style.projectDesc}>
                 <div className={style.mainTitle}>fundream</div>
+                <div className={style.descContent} style={{position:"relative", bottom:"20px"}}>
+                    {`Fundream은 사용자가 펀딩 프로젝트를 등록하고 후원할 수 있는 크라우드 펀딩 서비스입니다.
+                      저는 프로젝트 등록 플로우 전반(NewProduct·NewProductDetail)과 상태 관리(Zustand) 구조 설계를 담당했습니다.`}
+                </div>
 
                 <div className={style.skill}>
                     <span>프로젝트 특징 :</span>
