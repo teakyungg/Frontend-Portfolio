@@ -56,28 +56,15 @@ export default function Game2048() {
             {/* 내용 */}
             <div className={style.projectDesc}>
                 <div className={style.mainTitle}>2048 (웹 퍼즐 게임)</div>
+                <div className={style.descContent} style={{position:"relative", bottom:"20px"}}>
+                    {`JavaScript를 활용해 동적인 웹 페이지를 만들어보고자 했고, 
+                      사용자와의 상호작용이 많은 콘텐츠를 고민하던 중 2048 게임이 적합하다고 판단하여 만든 프로젝트 입니다.`}
+                </div>
 
                 <div className={style.skill}>
                     <span>프로젝트 특징 :</span>
                     <ul className={style.skillList}>{skillItem}</ul>
-                </div>
-
-                <div className={style.desc}>
-                    <div className={style.descTitle}>다양한 게임 모드(일반 / 하드 / 타임어택 / AI 대결) 구현</div>
-                  
-                    <div className={style.descContent}>
-                    {`그냥 2048을 “똑같이 구현했다”에서 끝나는 것보다,
-                      게임성을 확장해서 다시 해보고 싶은 요소를 넣는 걸 목표로 모드를 나눴습니다.`}
-                    </div>
-
-                    <ul style={{display:'flex', flexDirection:'column', gap:'20px', padding:'20px 0'}}>
-                        {gameModeItem}
-                    </ul>
-
-                    <div className={style.descContent}>
-                    {`모드 전환 시에는 공통으로 사용하는 보드/그리드 초기화 함수를 호출하도록 구성해,
-                      “모드는 다르지만 사용하는 기반 로직은 최대한 공유”되도록 설계했습니다.`}
-                    </div>
+                    <div style={{paddingTop:"20px"}}>(팀 프로젝트에서 제가 담당한 부분만 서술하였습니다.)</div>
                 </div> 
 
                 <div className={style.desc}>
@@ -86,7 +73,7 @@ export default function Game2048() {
                     <div className={style.descContent}>
                     {`초기 설계 단계에서, 하나의 파일에 타일 이동·병합 로직, 점수 계산, 게임 오버 판단, DOM 조작이 모두 섞이면
                       규칙을 수정하거나 새로운 모드를 추가할 때마다 코드 전반이 깨질 수 있다는 문제를 예상했습니다.
-                      이를 피하기 위해 게임 로직을 역할별로 분리해 설계했습니다.`}
+                      이를 피하기 위해 게임 로직을 역할별로 분리하여 팀원들과 개발하였습니다.`}
                     </div>
                     
                     <ul style={{display:'flex', flexDirection:'column', gap:'20px', padding:'20px 0'}}>
@@ -97,58 +84,44 @@ export default function Game2048() {
                     {`이렇게 “한 파일 = 한 책임(SRP)” 기준으로 나누면서,
                       새 모드를 추가할 때도 기존 코드를 거의 건드리지 않고 초기화/입력 처리 부분만 조합해 재사용할 수 있도록 만들었습니다.`}
                     </div>
-                </div> 
+                </div>
 
                 <div className={style.desc}>
-                    <div className={style.descTitle}>LocalStorage를 활용한 오늘·전체 최고 기록 관리</div>
-                
+                    <div className={style.descTitle}>타일 이동·병합 로직 설계 (find-move-tile.ts)</div>
+                  
                     <div className={style.descContent}>
-                    {`2048 게임 특성상 “한 번만 하고 끝”이 아니라, 계속 점수를 갱신하면서 도전하는 경우가 많다고 판단했습니다.
-                      그래서 점수 시스템은 단순히 현재 점수만 보이는 것이 아니라 다음처럼 설계했습니다.`}
-                    </div>
+                    {`게임 제작에 앞서, 2048 게임이 동작하는 핵심 로직을 먼저 구현하는 데 집중했습니다.
 
-                    <ul style={{display:'flex', flexDirection:'column', gap:'20px', padding:'20px 0'}}>
-                        {scoreItem}
-                    </ul>
+                      2048게임의 핵심은 
+                      1. 특정 위치의 어떤 숫자가 있는지 기억하는 것 
+                      2. 방향키 입력 시 병합이 가능한 숫자가 있는지 확인하는 것  
+                      3. 병합할 수 있다면 합치고, 없다면 이동만 수행하는 것  
 
-                    <div className={style.descContent}>
-                    {`위 변수를 선언하고 LocalStorage를 이용하여 관리하여 사용자는
-                     “오늘 얼마나 성장했는지”와 “전체 최고 기록은 어디까지인지”를 한눈에 비교할 수 있고,
-                     LocalStorage 키 설계와 날짜 기반 상태 초기화 로직을 직접 구현해 볼 수 있었습니다.
+                      이 규칙을 기반으로 게임 맵을 2차원 배열로 구성하고,
+                      현재 보드 상태와 입력된 방향에 따라 병합 여부, 이동 위치 등을 계산하는 로직을 함수 형태로 설계했습니다.
+                      
+                      최종적으로, 방향키만 함수에 전달하면  
+                      렌더링에 필요한 최신 2차원 배열 상태를 반환하도록 구성해  
+                      게임 내부 동작과 화면 렌더링을 명확히 분리할 수 있었습니다.
                     `}
                     </div>
                 </div> 
 
                 <div className={style.desc}>
-                    <div className={style.descTitle}>반응형 레이아웃과 게임 가이드 UI</div>
-                
+                    <div className={style.descTitle}>이동 애니메이션 및 AI 모드 연동 (moveAniElement, MoveArrAI 등)</div>
+                  
                     <div className={style.descContent}>
-                    {`마지막으로, 데스크톱과 모바일에서 모두 플레이가 가능하도록 레이아웃과 안내 UI를 구성했습니다.`}
-                    </div>
+                    {`이 2048 프로젝트에는 플레이어가 직접 조작하는 일반 모드 외에도,
+                      자동으로 움직이며 플레이하는 AI 모드가 존재합니다.
 
-                    <div>
-                        <Image src={'/2048/pc.png'} width={508} height={306} alt="2048 pc"/>
-                        <Image src={'/2048/mobile.png'} width={580} height={404} alt="2048 mobile"/>
-                    </div>
-
-                    <div style={{paddingTop:'20px'}}>
-                        <Highlight>@media (max-width: 767px)</Highlight>를 기준으로
-                        <ul style={{padding:'15px 0 0 15px', display:'grid', gap:'10px' }}>
-                            <li>→ 게임 보드, 타임어택 게이지, 버튼 크기를 vw 단위로 재조정</li>
-                            <li>→ 모바일에서는 하나의 컬럼으로 세로 배치해 시인성을 확보</li>
-                        </ul>
-                    </div>
-
-                    <div style={{padding:'20px 0'}}>
-                        데스크톱에서는
-                        <ul style={{padding:'15px 0 0 15px'}}>
-                            <li>→ 1P/AI 보드, 점수판, 게임 가이드를 좌우로 배치해 한 화면에서 점수·기록·조작법·보드 상태를 동시에 볼 수 있도록 구성</li>
-                        </ul>
-                    </div>
-
-                    <div className={style.descContent}>
-                    {`또한 화면에는 키보드 조작법과 모바일 스와이프 가이드를 함께 표시해,
-                      처음 접속한 사용자도 조작 방식을 쉽게 이해할 수 있도록 인터페이스를 정리했습니다.`}
+                      두 모드 모두에서 동일한 이동 애니메이션을 적용하기 위해,
+                      타일이 실제로 이동한 좌표 정보를 기반으로 DOM 요소에 transition과 위치 변화를 부여하는 기능을
+                      함수 형태로 설계했습니다. 방향키만 전달하면 그에 맞는 애니메이션이 실행되도록
+                      함수형 프로그래밍 방식으로 구현했습니다.
+                      
+                      AI 모드는 사용자의 입력이 없는 대신 자동으로 이동 정보를 생성하기 때문에,
+                      기존 사용자용 애니메이션 함수를 재사용하면서 필요한 기능을 일부 확장하여
+                      AI가 움직일 때도 사람 플레이와 동일한 자연스러운 이동·병합 애니메이션이 나타나도록 구성했습니다.`}
                     </div>
                 </div> 
             </div>
