@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Fundream() {
 
-    const skillData = ['Next.js', 'React','REST API', 'Git', 'GitHub', 'Prettier','반응형', '팀 프로젝트'];
+    const skillData = ['Next.js','TypeScript', 'REST API', 'Git', 'GitHub', 'Prettier','반응형', '팀 프로젝트'];
     const skillItem = skillData.map((skill) => <li key={skill}><Highlight>{skill}</Highlight></li>);
 
     const NewProductData = ['CreateProjectTitle','CategoryBar','ProductSummaryInput']
