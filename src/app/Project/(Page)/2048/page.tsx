@@ -20,27 +20,6 @@ export default function Game2048() {
         <Highlight>{value.title}</Highlight> : <span>{value.text}</span>
     </li>)
 
-
-    const gameModeData = [
-        {title: '일반 모드', text: '기본 4×4 보드에서 2048을 만드는 클래식 모드'},
-        {title: '하드모드', text: '동일한 보드 크기지만 초기 배치·타일 생성 규칙을 조정해 난이도 상승'},
-        {title: '타임 어택 모드', text: '상단에 HP 게이지 형태의 타이머 바를 배치하고, 게이지가 일정 시간 안에 바닥나면 게임 오버가 되도록 애니메이션과 연동'},
-        {title: 'AI 대결 모드', text: '사용자 보드(board)와 AI 보드(board2)를 나란히 렌더링 하고 ai-score를 별도로 두어 AI와 점수 경쟁을 하는 구조로 설계'},
-    ]
-    const gameModeItem = gameModeData.map((value) => <li key={value.title}>
-        <Highlight>{value.title}</Highlight> : <span>{value.text}</span>
-    </li>)
-
-
-    const scoreData = [
-        {title: 'currentScore', text: '현재 플레이의 점수'},
-        {title: 'bestScoreTotal', text: '전체 플레이 기준 최고 점수'},
-        {title: 'bestScoreToday + bestScoreTodayDate', text: '오늘 날짜 기준 최고 점수'},
-    ]
-    const scoreItem = scoreData.map((value) => <li key={value.title}>
-        <Highlight>{value.title}</Highlight> : <span>{value.text}</span>
-    </li>)
-
     return (
         <div className={style.project}>
             {/* 대표이미지 */}
