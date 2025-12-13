@@ -41,14 +41,14 @@ export const projectList: ProjectItemData[] = [
     titleFontFamily: "YeongwolTTF-Regular",
     dataCategory: ["All", "Team"],
   },
-  // {
-  //   src: "/WonLab.png",
-  //   alt: "WonLab.png image",
-  //   title: "WonLab",
-  //   titleColor: "black",
-  //   titleFontFamily: "",
-  //   dataCategory: ["All", "Personal"],
-  // },
+  {
+    src: "/WonLab.png",
+    alt: "WonLab.png image",
+    title: "WonLab",
+    titleColor: "black",
+    titleFontFamily: "",
+    dataCategory: ["All", "Personal"],
+  },
   {
     src: "/portfolio.png",
     alt: "portfolio image",
