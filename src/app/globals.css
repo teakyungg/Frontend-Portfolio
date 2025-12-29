@@ -3,6 +3,7 @@
 :root {
   --basic-background: #000000;
   --header-height: 120px;
+  --highLight-color: rgba(135, 131, 120, 0.15);
 }
 
 * {
@@ -21,3 +22,13 @@ body {
 a {
   color: inherit;
 }
+
+summary{
+  display: list-item;
+  cursor: pointer;
+  list-style-position: inside; 
+  padding-bottom: 10px;
+  padding-left: 0;              
+}
+summary::marker{ content: "▶ "; }
+details[open] > summary::marker{ content: "▼ "; }
