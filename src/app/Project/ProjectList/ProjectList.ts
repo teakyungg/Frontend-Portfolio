@@ -9,6 +9,15 @@ export interface ProjectItemData {
 
 export const projectList: ProjectItemData[] = [
   {
+    src: "/Animal.png",
+    alt: "Animal image",
+    title: "Animal",
+    titleColor: "black",
+    titleFontFamily: "Aggravo",
+    dataCategory: ["All", "Personal"],
+
+  },
+  {
     src: "/fundream.png",
     alt: "fundream image",
     title: "Fundream",
@@ -49,12 +58,12 @@ export const projectList: ProjectItemData[] = [
     titleFontFamily: "",
     dataCategory: ["All", "Personal"],
   },
-  {
-    src: "/portfolio.png",
-    alt: "portfolio image",
-    title: "Portfolio",
-    titleColor: "black",
-    titleFontFamily: "SfHambakneun",
-    dataCategory: ["All", "Personal"],
-  },
+  // {
+  //   src: "/portfolio.png",
+  //   alt: "portfolio image",
+  //   title: "Portfolio",
+  //   titleColor: "black",
+  //   titleFontFamily: "SfHambakneun",
+  //   dataCategory: ["All", "Personal"],
+  // },
 ];
