@@ -59,20 +59,38 @@
   flex-direction: column;
   gap: 30px;
 
-  .mainTitle {
-    font-size: 50px;
-    font-weight: 700;
+  img {
+    object-fit: contain;
+  }
+
+  details {
+    p {
+      padding: 10px;
+      background-color: var(--highLight-color);
+      border-radius: 16px;
+    }
+  }
+
+  .projectHeader {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    .mainTitle {
+      font-size: 50px;
+      font-weight: 700;
+    }
   }
 
   .skill {
     position: relative;
     bottom: 15px;
-  }
 
-  .skillList {
-    display: inline-flex;
-    padding-left: 10px;
-    gap: 10px;
+    .skillList {
+      display: inline-flex;
+      padding-left: 10px;
+      gap: 10px;
+    }
   }
 
   .desc {
@@ -83,27 +101,15 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-  }
 
-  .descTitle {
-    font-size: 20px;
-    font-weight: bold;
-  }
+    .descTitle {
+      font-size: 20px;
+      font-weight: bold;
+    }
 
-  .descContent {
-    line-height: 1.5;
-    white-space: pre-line;
-  }
-
-  img {
-    object-fit: contain;
-  }
-
-  details {
-    p {
-      padding: 10px;
-      background-color: var(--highLight-color);
-      border-radius: 16px;
+    .descContent {
+      line-height: 1.5;
+      white-space: pre-line;
     }
   }
 }

@@ -233,9 +233,15 @@ export default function Animal() {
         </div>
       </a>
 
-      {/* 내용 */}
       <div className={style.projectDesc}>
-        <div className={style.mainTitle}>Animal</div>
+        {/* 프로젝트 제목, 깃허브 링크 */}
+        <div className={style.projectHeader}>
+          <div className={style.mainTitle}>Animal</div>
+          <a href="https://github.com/teakyungg/Animal-React" title="GitHub 바로가기" target="_blank">
+            <Image src={"/github_logo_icon.svg"} width={40} height={40} alt="github_logo_icon" />
+          </a>
+        </div>
+
         <div className={style.descContent} style={{ position: "relative", bottom: "20px" }}>
           {`Animal 프로젝트는 Pinterest, Behance, Unsplash와 유사한 Masonry Layout UI를 구현하며 동적 레이아웃 처리 경험을 위한 프로젝트 입니다.`}
         </div>
