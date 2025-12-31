@@ -2,8 +2,12 @@
 
 :root {
   --basic-background: #000000;
-  --header-height: 120px;
+  --header-height: 64px;
   --highLight-color: rgba(135, 131, 120, 0.15);
+
+  --mobile-font-size: 16px;
+  --tablet-font-size: 17px;
+  --default-font-size: 18px;
 }
 
 * {
@@ -17,18 +21,62 @@
 body {
   background-color: var(--basic-background);
   color: white;
+  font-size: var(--mobile-font-size);
 }
 
 a {
   color: inherit;
 }
 
-summary{
+summary {
   display: list-item;
   cursor: pointer;
-  list-style-position: inside; 
+  list-style-position: inside;
   padding-bottom: 10px;
-  padding-left: 0;              
+  padding-left: 0;
 }
-summary::marker{ content: "▶ "; }
-details[open] > summary::marker{ content: "▼ "; }
+summary::marker {
+  content: "▶ ";
+}
+details[open] > summary::marker {
+  content: "▼ ";
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 브레이크 포인트 */
+/* mobile 0 ~ 767 까지 */
+/* tablet 768 ~ 1023px 까지 */
+/* 이 이상은 기본 desktop */
+
+/* mobile */
+@media (min-width: 767px) {
+  :root {
+    --header-height: 88px;
+  }
+
+  body {
+    font-size: var(--tablet-font-size);
+  }
+}
+
+/* tablet */
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 120px;
+  }
+
+  body {
+    font-size: var(--default-font-size);
+  }
+}
