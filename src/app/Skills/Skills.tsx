@@ -13,21 +13,28 @@ export function Skills() {
 
   /* skill 데이터 */
   const skillData = [
-    {name: 'Web Basics', data: ['HTML5','CSS','JavaScript(ES6+)']},
-    {name: 'Frameworks', data: ['React','Next.js']},
-    {name: 'Styling & Tools', data: ['Tailwind CSS','SCSS','TypeScript','Figma']},
-    {name: 'Animation & UI Libraries', data: ['GSAP','Swiper','Packery']},
-  ]
+    { name: "Web Basics", data: ["HTML5", "CSS", "JavaScript(ES6+)"] },
+    { name: "Frameworks", data: ["React", "Next.js"] },
+    { name: "Styling & Tools", data: ["Tailwind CSS", "SCSS", "TypeScript", "Figma"] },
+    { name: "Animation & UI Libraries", data: ["GSAP", "Swiper", "Packery"] },
+  ];
 
-  const skillEl = skillData.map(value => <li key={value.name}>
-    {value.name}: {value.data.map((dataValue, index) => <Highlight key={index}>{dataValue}</Highlight>)}
-  </li>)
+  const skillEl = skillData.map((value) => (
+    <li className={styles.skillItem} key={value.name}>
+      <div>{value.name} : </div>
+      <div className={styles.items}>
+        {value.data.map((dataValue, index) => (
+          <Highlight key={index}>{dataValue}</Highlight>
+        ))}
+      </div>
+    </li>
+  ));
 
   return (
-    <section>
+    <section id="Skill">
       <div className={styles.skillsInner}>
         <h2 className={styles.title}>Skill</h2>
-        
+
         <div className={styles.content}>
           <Swiper
             modules={[Autoplay]}

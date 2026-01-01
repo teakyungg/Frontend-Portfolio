@@ -1,39 +1,55 @@
 .skillsInner {
-  width: 1000px;
+  width: 80%;
   margin: 0 auto;
-  padding: 80px 0px;
-  border-bottom: 1px solid;
-}
+  padding: 50px 0px;
+  border-top: 1px solid white;
 
-.swiper {
-  width: 100%;
-  aspect-ratio: 1/1;
-}
+  .title {
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+  }
 
-.title {
-  font-size: 60px;
-  font-weight: bold;
-  text-align: center;
-}
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 
-.content{
-  display: grid;
-  grid-template-columns: 0.3fr 0.7fr;
-  gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 40px;
 
-  padding-top: 40px;
-}
+    .swiper {
+      width: 100%;
+      max-width: 250px;
+      aspect-ratio: 1/1;
+    }
 
-.skillList{
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  justify-content: center;
+    .skillList {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 1em;
 
-  font-size: 20px;
+      .skillItem {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
 
-  span{
-    margin: 0 5px;
+        .items {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+      }
+    }
   }
 }
 
+@media (min-width: 1024px) {
+  .skillsInner {
+    .content {
+      flex-direction: row;
+    }
+  }
+}
