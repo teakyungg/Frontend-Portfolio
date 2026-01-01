@@ -22,7 +22,7 @@ export function Mail() {
       <div className={styles.mailItem}>
         <a
           className={styles.mailLink}
-          style={{backgroundImage: 'url("/mailSend.png")'}}
+          style={{ backgroundImage: 'url("/mailSend.png")' }}
           href="mailto:rlaxorud8532@gmail.com"
           target="_blank"
         ></a>
@@ -30,12 +30,12 @@ export function Mail() {
       </div>
 
       <div className={styles.mailItem}>
-        <div 
-          className={styles.mailLink} 
-          ref={mailAddress} 
+        <div
+          className={styles.mailLink}
+          ref={mailAddress}
           onClick={copyAddress}
-          style={{backgroundImage: 'url("/mail.png")', backgroundSize: "70%", cursor: "pointer"}}
-          ></div>
+          style={{ backgroundImage: 'url("/mail.png")', backgroundSize: "70%", cursor: "pointer" }}
+        ></div>
         <span className={styles.title}>메일 주소 복사하기</span>
       </div>
     </aside>

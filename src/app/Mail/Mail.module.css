@@ -3,39 +3,45 @@
   right: 20px;
   bottom: 20px;
 
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 20px;
+
+  .mailItem {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .title {
+    background-color: rgba(17, 24, 39, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+
+    transition: opacity 0.3s;
+  }
+
+  .mailLink {
+    border-radius: 50%;
+    background-color: white;
+
+    width: 40px;
+    aspect-ratio: 1/1;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &:hover ~ .title {
+      opacity: 1;
+    }
+  }
 }
 
-.mailItem {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  gap: 10px;
-}
-
-.title {
-  background-color: rgba(17, 24, 39, 0.5);
-  padding: 10px;
-  border-radius: 5px;
-  opacity: 0;
-
-  transition: opacity 0.3s;
-}
-
-.mailLink {
-  border-radius: 50%;
-  background-color: white;
-
-  width: 50px;
-  aspect-ratio: 1/1;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  &:hover ~ .title {
-    opacity: 1;
+@media (min-width: 767px) {
+  .mailInner {
+    display: flex;
   }
 }
