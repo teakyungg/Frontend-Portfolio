@@ -1,68 +1,88 @@
 .intro {
   width: 100%;
   padding-top: 62px;
-}
 
-.inner{
-  margin: 0 auto;
-  width: 1000px;
-  height: 900px;
+  --title-font-size: 6em;
+  --name-font-size: 1em;
+  --nameBig-font-size: 1.3em;
+  --goal-font-size: 1.2em;
+  --gitHub-size: 40px;
 
-  position: relative;
-  border-bottom: 1px solid white;
-}
+  .inner {
+    width: 80%;
+    height: 900px;
+    margin: 0 auto;
+    position: relative;
+    border-bottom: 1px solid white;
 
-.title, .name, .goal, .gitHub{
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    & > * {
+      opacity: 0;
+    }
 
-  opacity: 0;
-  text-align: center;
-}
+    .title {
+      color: gray;
+      font-size: var(--title-font-size);
+      font-family: "YeongwolTTF-Regular";
+      font-weight: 600;
+    }
 
-.title {
-  color: gray;
-  font-size: 160px;
-  font-family: "YeongwolTTF-Regular";
-  font-weight: 600;
-}
+    .name {
+      color: white;
+      font-weight: bold;
+      font-size: var(--name-font-size);
 
-.name {
-  font-size: 36px;
-  color: white;
-  font-weight: bold;
+      span {
+        font-size: var(--nameBig-font-size);
+      }
+    }
 
-  & > span:first-child {
-    font-size: 60px;
+    .goal {
+      font-size: var(--goal-font-size);
+      color: gray;
+
+      & > span {
+        display: block;
+      }
+
+      & > span:first-child {
+        padding-bottom: 10px;
+      }
+
+      & > strong {
+        font-size: 25px;
+      }
+    }
+
+    .gitHub {
+      width: var(--gitHub-size);
+      aspect-ratio: 1/1;
+    }
   }
+}
 
-  & > span:last-child {
-    font-size: 40px;
+/* mobile */
+@media (min-width: 767px) {
+  .intro {
+    --title-font-size: 8em;
+    --name-font-size: 1.2em;
+    --nameBig-font-size: 1.5em;
+    --goal-font-size: 1.4em;
   }
 }
 
-.goal {
-  font-size: 20px;
-  color: gray;
-
-  & > span{
-    display: block;
+/* tablet */
+@media (min-width: 1024px) {
+  .intro {
+    --title-font-size: 10em;
+    --name-font-size: 1.5em;
+    --nameBig-font-size: 2em;
+    --goal-font-size: 1.6em;
   }
-
-  & > span:first-child{
-    padding-bottom: 10px;
-  }
-
-  & > strong {
-    font-size: 25px;
-  }
-}
-
-.gitHub {
-  width: 40px;
-  aspect-ratio: 1/1;
 }

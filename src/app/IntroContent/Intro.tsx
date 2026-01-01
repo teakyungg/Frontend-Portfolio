@@ -10,46 +10,72 @@ export function Intro() {
 
   // 애니메이션 동작 설정 (GSAP)
   const animationOption = [
-    { set: { y:-150 }, to: { opacity: 1, y:-120, duration: 1.5, delay: 1 } },
-    { set: { y: -50 }, to: { opacity: 1, y: 0, duration: 1, delay: 2 } },
-    { set: { y: -30 }, to: { opacity: 1, y: 80, duration: 1, delay: 3 } },
-    { set: { y: 80 }, to: { opacity: 1, y: 160, duration: 1, delay: 4 } }
+    { set: { y: -20 }, to: { opacity: 1, y: 0, duration: 1.5, delay: 1 } },
+    { set: { y: -20 }, to: { opacity: 1, y: 0, duration: 1, delay: 2 } },
+    { set: { y: -20 }, to: { opacity: 1, y: 0, duration: 1, delay: 3 } },
+    { set: { y: -20 }, to: { opacity: 1, y: 0, duration: 1, delay: 4 } },
   ];
 
   useEffect(() => {
     // GSAP 애니메이션 적용
     animationBoxes.current.forEach((aniEl, index) => {
-      if(aniEl){
+      if (aniEl) {
         gsap.set(aniEl, animationOption[index].set);
         gsap.to(aniEl, animationOption[index].to);
-       }
+      }
     });
-
   }, []);
 
   return (
     <section className={styles.intro}>
       <h2 className="sr-only">Intro</h2>
-      
+
       <div className={styles.inner}>
         {/* 제목 */}
-        <div ref={(dom) => { animationBoxes.current[0] = dom!;}} className={styles.title}>Frontend</div>
+        <div
+          ref={(dom) => {
+            animationBoxes.current[0] = dom!;
+          }}
+          className={styles.title}
+        >
+          Frontend
+        </div>
 
         {/* 이름 */}
-        <div ref={(dom) => { animationBoxes.current[1] = dom!;}} className={styles.name}>
-          <span>프론트엔드</span> 개발자
-          <span> 김태경 </span>입니다.
+        <div
+          ref={(dom) => {
+            animationBoxes.current[1] = dom!;
+          }}
+          className={styles.name}
+        >
+          <div>
+            <span>프론트엔드</span> 개발자
+          </div>
+          <div>
+            <span> 김태경</span> 입니다.
+          </div>
         </div>
 
         {/* 목표 */}
-        <div ref={(dom) => { animationBoxes.current[2] = dom!;}} className={styles.goal}>
-            <span>매일 성장, 매일 발전</span>
-            <span>매 순간 <strong>성장</strong>하는 <strong>개발자</strong>입니다.
-            </span>
+        <div
+          ref={(dom) => {
+            animationBoxes.current[2] = dom!;
+          }}
+          className={styles.goal}
+        >
+          <span>매일 성장, 매일 발전</span>
+          <span>
+            매 순간 <strong>성장</strong>하는 <strong>개발자</strong>입니다.
+          </span>
         </div>
 
         {/* 깃허브 */}
-        <div ref={(dom) => { animationBoxes.current[3] = dom!;}} className={styles.gitHub}>
+        <div
+          ref={(dom) => {
+            animationBoxes.current[3] = dom!;
+          }}
+          className={styles.gitHub}
+        >
           <Link href={"https://github.com/teakyungg"} target="_blank">
             <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -88,7 +114,6 @@ export function Intro() {
           </Link>
         </div>
       </div>
-
     </section>
   );
 }
