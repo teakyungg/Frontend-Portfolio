@@ -22,8 +22,9 @@ export function Project() {
       onClick={() => {
         clickCategory(item);
       }}
-      >
-      <span className={styles.projectTitleText}>{item}</span>
+      className={styles.projectTitle}
+    >
+      <span>{item}</span>
       <div className={selectedCategory === item ? styles.nowProjectTitle : styles.defaultProjectTitle}></div>
     </li>
   ));
@@ -49,7 +50,7 @@ export function Project() {
   }, []);
 
   return (
-    <section>
+    <section id="Project">
       <div className={styles.project}>
         {/* 프로젝트 */}
         <h1 className={styles.title}>Project</h1>
