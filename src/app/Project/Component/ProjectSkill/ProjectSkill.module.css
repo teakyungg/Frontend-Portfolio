@@ -1,0 +1,11 @@
+.skill {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .skillList {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
