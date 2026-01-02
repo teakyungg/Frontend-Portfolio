@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./ProjectList/Project.module.css";
-import { projectList } from "./ProjectList/ProjectList";
+import styles from "./Project.module.css";
+import { projectList } from "./ProjectList";
 import ProjectItem from "@/component/ProjectItem/ProjectItem";
 
 export function Project() {
