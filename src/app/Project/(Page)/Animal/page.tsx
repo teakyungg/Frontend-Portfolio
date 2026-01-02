@@ -1,4 +1,3 @@
-import { Highlight } from "@/component/Highlight/Highlight";
 import style from "../page.module.css";
 import Image from "next/image";
 import { ProjectPreviewCard } from "../../Component/ProjectPreviewCard/ProjectPreviewCard";
@@ -8,7 +7,7 @@ import { ProjectDescCard } from "../../Component/ProjectDesc/ProjectDescCard";
 
 export default function Animal() {
   // 제작 시술
-  const skillData = ["Rest API", "React", "Zustand", "Packery", "Git", "GitHub", "개인 프로젝트"];
+  const skillData = ["Rest API", "React", "Zustand", "Packery", "Git", "GitHub", "반응형", "개인 프로젝트"];
 
   // 기초 설계 데이터
   const basicDesignData = [
