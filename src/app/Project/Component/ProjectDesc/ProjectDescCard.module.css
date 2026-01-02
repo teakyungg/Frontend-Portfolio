@@ -1,0 +1,11 @@
+.ProjectDesc {
+  background-color: rgba(17, 24, 39, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  padding: 20px;
+  border-radius: 8px;
+  line-height: 1.5;
+}
