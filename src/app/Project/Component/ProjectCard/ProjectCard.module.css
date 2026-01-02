@@ -1,0 +1,10 @@
+.projectHeader {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  .mainTitle {
+    font-size: 50px;
+    font-weight: 700;
+  }
+}
