@@ -1,0 +1,53 @@
+.ProjectPreviewCard {
+  display: block;
+  width: 80%;
+  height: 300px;
+  border: 1px solid white;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  border-radius: 8px;
+  position: relative;
+
+  .btnLinkBg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btnLink {
+      padding: 20px;
+      background-color: black;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 8px;
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .ProjectPreviewCard {
+    height: 500px;
+
+    .btnLinkBg {
+      .btnLink {
+        opacity: 0;
+      }
+    }
+
+    &:hover .btnLink {
+      opacity: 1;
+    }
+
+    &:hover .btnLinkBg {
+      background-color: rgb(0, 0, 0, 0.5);
+    }
+  }
+}
