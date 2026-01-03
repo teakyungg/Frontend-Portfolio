@@ -12,6 +12,8 @@ export default function Fundream() {
     "Tailwind CSS",
     "Zustand",
     "ReactQuill",
+    "Day.js",
+    "@mantine/dates",
     "Git",
     "GitHub",
     "반응형",
@@ -33,11 +35,11 @@ export default function Fundream() {
     },
     {
       title: `UX 관점 분석`,
-      content: `사용자는 긴 등록 과정에서 “현재 무엇이 완료되었는지”를 즉시 확인하고 싶어하다고 생각하였고 그래서 상세 입력은 섹션 단위로 분리하고(Plan/Intro/Thumbnail/Category/Content 등), 인증은 모달 기반으로 확인 플로우를 제공하며, 완료 상태를 UI에서 명확히 표시하는 구조를 목표로 설계했습니다.`,
+      content: `사용자는 긴 등록 과정에서 “현재 무엇이 완료되었는지”를 즉시 확인하고 싶어한다고 생각했고, 그래서 상세 입력은 섹션 단위로 분리하고(Plan/Intro/Thumbnail/Category/Content 등), 인증은 모달 기반으로 확인 플로우를 제공하며, 완료 상태를 UI에서 명확히 표시하는 구조를 목표로 설계했습니다.`,
     },
     {
       title: `구현 방향 결정`,
-      content: `페이지 간/섹션 간 공유되는 값이 많아 props 전달로만 흐름을 유지하면 복잡도가 커질 수 있다고 판단하였고, 프로젝트 규모가 소규모인것을 감안하여 Zustand(useProjectStore)를 사용하여 입력값/인증 상태/초기화를 통합 관리하기로 하였습니다.`,
+      content: `페이지 간/섹션 간 공유되는 값이 많아 props 전달로만 흐름을 유지하면 복잡도가 커질 수 있다고 판단하였고, 프로젝트 규모가 소규모인 것을 감안하여 Zustand(useProjectStore)를 사용하여 입력값/인증 상태/초기화를 통합 관리하기로 하였습니다.`,
     },
   ];
 
@@ -49,7 +51,7 @@ export default function Fundream() {
     },
     {
       title: `Next.js 선택 근거`,
-      content: `그 결과, App Router 기반의 레이아웃·라우팅 구조를 활용할 수 있고 페이지 구조가 명확히 정의된 프레임워크인 Next.js를 사용하는게 좋다고 판단하였습니다.`,
+      content: `그 결과, App Router 기반의 레이아웃·라우팅 구조를 활용할 수 있고 페이지 구조가 명확히 정의된 프레임워크인 Next.js를 사용하는 게 좋다고 판단하였습니다.`,
     },
     {
       title: `SEO 고려`,
@@ -140,7 +142,8 @@ export default function Fundream() {
         <ProjectCard
           title="펀드림(FunDream)"
           gitHubLink="https://github.com/FRONTENDBOOTCAMP-13th/Final-11-Cutie"
-          projectDesc="사용자가 프로젝트(상품)를 등록하고, 펀딩/결제/리뷰까지 이어지는 크라우드 펀딩 플랫폼 팀 프로젝트입니다. (담당: 프로젝트 등록 상세 플로우/인증 UI/상태관리/메인 로딩 UX/일부 리팩토링)"
+          projectDesc={`사용자가 프로젝트(상품)를 등록하고, 펀딩/결제/리뷰까지 이어지는 크라우드 펀딩 플랫폼 팀 프로젝트입니다.
+            (담당: 프로젝트 등록 상세 플로우/인증 UI/상태관리/메인 로딩 UX/일부 리팩토링)`}
         />
 
         {/* 프로젝트 스킬 */}
@@ -180,7 +183,7 @@ export default function Fundream() {
         <ProjectDescCard>
           <div className={style.descTitle}>라이브러리/구현 방식 선택: 에디터·일정·로딩 UX</div>
           <div>
-            <p>- 콘텐츠 입력은 일정을 고려해 react-quill-new를 사용하였습니다.</p>
+            <p>- 콘텐츠 입력은 에디터가 필요해 react-quill-new를 사용했습니다.</p>
             <p>- 일정 선택은 Mantine Dates + dayjs 조합으로, 로딩 구간은 Skeleton UI로 UX를 보완했습니다.</p>
           </div>
 
