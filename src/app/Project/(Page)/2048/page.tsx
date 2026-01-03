@@ -1,118 +1,257 @@
-import { Highlight } from "@/component/Highlight/Highlight";
 import style from "../page.module.css";
-import Image from "next/image";
+import { ProjectPreviewCard } from "../../Component/ProjectPreviewCard/ProjectPreviewCard";
+import { ProjectCard } from "../../Component/ProjectCard/ProjectCard";
+import { ProjectSkill } from "../../Component/ProjectSkill/ProjectSkill";
+import { ProjectDescCard } from "../../Component/ProjectDesc/ProjectDescCard";
 
 export default function Game2048() {
-  const skillData = ["Vite", "Typescript", "Eslint", "Git", "GitHub", "Prettier", "팀 프로젝트"];
-  const skillItem = skillData.map((skill) => (
-    <li key={skill}>
-      <Highlight>{skill}</Highlight>
-    </li>
-  ));
-
-  const fileModuleData = [
-    { title: "add-random-cell.ts", text: "새 타일 생성 및 그리드 초기화" },
-    { title: "marge-tiles.ts", text: "방향에 따른 타일 병합 규칙 처리" },
-    { title: "can-move.ts", text: "이동 또는 병합 가능한 타일이 남아 있는지 검사" },
-    { title: "game-over.ts", text: "게임 오버 상태 관리 및 오버레이 표시" },
-    { title: "board.ts", text: "1P/AI 보드를 분리해 렌더링하는 공통 함수" },
-    { title: "score.ts", text: "점수 계산 + LocalStorage 기록 관리" },
+  // 제작 기술
+  const skillData = [
+    "TypeScript",
+    "Vanilla JS(DOM 조작)",
+    "HTML/CSS",
+    "Vite(번들러)",
+    "ESLint/Prettier",
+    "Git",
+    "GitHub",
+    "Netlify",
+    "반응형",
+    "팀 프로젝트",
   ];
-  const fileModuleItem = fileModuleData.map((value) => (
-    <li key={value.title}>
-      <Highlight>{value.title}</Highlight> : <span>{value.text}</span>
-    </li>
-  ));
+
+  // 초기 설계
+  const basicDesignData = [
+    {
+      title: `설계에 영향을 주는 핵심 변수`,
+      content: `2048의 핵심은 “한 번의 입력에서 타일이 어디로 이동하고, 어떤 타일이 병합되는지”를 정확히 계산하는 것입니다. 특히 같은 줄에서 병합이 연쇄적으로 발생할 때(예: 2 2 2 2) “한 번의 이동에서 한 타일은 한 번만 병합” 규칙을 지키는 것이 핵심 변수라고 판단했습니다.`,
+    },
+    {
+      title: `데이터 구조 결정`,
+      content: `보드는 2차원 배열(grid)로 계산하고, 화면의 각 타일(div)은 dataset.value를 통해 값을 읽고 쓰는 구조로 설계했습니다.
+                이 방식이라면 타일 이동으로 값이 변경되더라도, 특정 위치에 있는 dataset.value를 기준으로 현재 위치와 값을 직관적으로 다시 읽어올 수 있다고 판단했기 때문입니다.`,
+    },
+
+    {
+      title: `UX 관점에서의 요구사항`,
+      content: `타일이 즉시 텔레포트하듯 바뀌면 사용자가 “무슨 일이 일어났는지” 이해하기 어렵다고 생각했습니다. 그래서 이동은 CSS transform 기반 애니메이션으로 보여주고, 애니메이션이 끝난 뒤 실제 값 업데이트가 적용되는 흐름이 필요하다고 판단했습니다.`,
+    },
+    {
+      title: `구현 방향 결정`,
+      content: `타일 이동 시 각 타일의 현재 값을 dataset을 통해 읽어와 2차원 배열로 변환한 뒤,이 배열에 이동·병합 계산 로직을 적용해 새로운 보드 상태를 먼저 산출하도록 설계했습니다.
+
+            이후 계산이 완료된 결과를 기준으로 화면에 이동 애니메이션과 렌더링을 적용했습니다. 이 과정에서 계산 로직과 화면 렌더링을 명확히 분리하는 것에 중점을 두었습니다.`,
+    },
+  ];
+
+  // 구현 도구 선택
+  const toolData = [
+    {
+      title: `TypeScript 선택 이유`,
+      content: `보드는 좌표(y, x) 기반으로 움직이기 때문에 인덱스 실수나 방향 처리 실수가 자주 발생할 수 있습니다. TypeScript를 사용해 “이동 정보가 항상 [y, x, ny, nx] 형태를 갖도록” 타입을 맞추고, 런타임 오류 가능성을 줄이고자 사용하였습니다.`,
+    },
+    {
+      title: `Vite 선택 이유`,
+      content: `게임 프로젝트는 정적 리소스(svg, 이미지, 사운드)가 많고, 배포 전 빌드가 자주 필요했습니다. Vite 기반으로 개발/빌드 속도를 확보하고, 정적 자산을 번들링 환경에서 안정적으로 다루는 것을 목표로 했습니다.`,
+    },
+  ];
+
+  // 이슈 1) 무효 이동에서도 새 타일 생성되는 문제
+  const invalidMoveIssueData = [
+    {
+      title: `[문제]`,
+      content: `사용자가 방향키를 눌렀지만 실제로 보드에 변화가 없는 경우(= 이동 불가)에도, 새 타일이 생성되는 현상이 발생했습니다. 이는 2048의 기본 규칙을 위반하는 동작으로, 사용자 경험에 직접적인 영향을 주는 문제였습니다.`,
+    },
+    {
+      title: `[해결]`,
+      content: `타일 이동 계산을 수행하기 전에 현재 보드 배열을 별도로 저장해두고, 사용자 입력 후 계산 로직이 적용된 결과 배열과 이를 비교하도록 처리했습니다. 두 배열의 값이 동일한 경우에는 실제로 이동이 발생하지 않은 것으로 판단하고, 해당 입력에서는 새 타일 생성 로직이 실행되지 않도록 분기 처리를 추가했습니다.`,
+    },
+
+    {
+      title: `[결과]`,
+      content: `이제 실제로 보드가 변한 입력에서만 새 타일이 생성되어 2048의 규칙과 동일한 흐름으로 안정화되었습니다.`,
+    },
+  ];
+
+  // 이슈 2) 반응형에서 애니메이션 거리 오차
+  const responsiveAnimationIssueData = [
+    {
+      title: `[문제]`,
+      content: `타일 이동 애니메이션을 만들 때 “얼마나 이동해야 하는지(px)” 계산이 틀어지면, 반응형 환경에서 타일이 칸 중심에 정확히 맞지 않고 어긋나는 문제가 발생했습니다. 특히 보드의 gap(칸 사이 간격)까지 고려하지 않으면 오차가 누적되었습니다.`,
+    },
+    {
+      title: `[해결]`,
+      content: `이동 거리(moveLength)를 “칸(box)의 실제 width + 보드 gap”을 getComputedStyle로 계산해 동적으로 결정했습니다.
+                즉, 화면 크기/보드 사이즈가 바뀌어도 항상 실제 렌더링된 값을 기준으로 이동하도록 바꿨습니다.`,
+    },
+    {
+      title: `[결과]`,
+      content: `보드 크기(3x3/4x4/5x5)와 화면 크기가 달라도, 타일 이동 애니메이션이 칸 기준으로 정확히 정렬되도록 개선되었습니다.`,
+    },
+  ];
+
+  // 이슈 3) 애니메이션 중 연속 입력으로 상태 꼬임
+  const inputSyncIssueData = [
+    {
+      title: `[문제]`,
+      content: `타일 이동을 애니메이션으로 보여주는 동안 사용자가 연속 입력을 하면, 화면(애니메이션 진행 중)과 실제 상태 업데이트(보드 값 반영)가 서로 엇갈려 동작할 수 있었습니다. 결과적으로 “이동이 끝나기도 전에 다음 이동이 들어오는” 상태 꼬임 문제가 발생했습니다.`,
+    },
+    {
+      title: `[해결]`,
+      content: `애니메이션 진행 시간(0.3초)에 맞춰 입력을 잠시 막는 inputDelay를 적용했습니다. 또한 값 업데이트/승리 체크 같은 후속 로직은 setTimeout으로 애니메이션 종료 시점 이후에 실행되도록 동기화했습니다.`,
+    },
+    {
+      title: `[결과]`,
+      content: `연속 입력 상황에서도 한 번의 입력 흐름이 끝난 뒤 다음 입력이 처리되어, 상태 꼬임 없이 안정적으로 동작하게 되었습니다.`,
+    },
+  ];
+
+  // 이슈 4) 빌드 환경에서 SVG 아이콘 경로 깨짐
+  const assetBuildIssueData = [
+    {
+      title: `[문제]`,
+      content: `개발 환경에서는 상대경로로 svg 파일을 img src에 넣어도 동작했지만, Vite 빌드 이후 배포 환경에서는 정적 자산 경로가 달라져 아이콘이 깨지는 문제가 발생했습니다.`,
+    },
+    {
+      title: `[해결]`,
+      content: `svg를 “문자열 경로로 직접 넣는 방식” 대신, import로 가져와 번들러가 관리하는 자산 URL을 사용하도록 변경했습니다. 그 결과 배포 환경에서도 동일하게 아이콘이 로드되도록 처리했습니다.`,
+    },
+    {
+      title: `[결과]`,
+      content: `배포 환경에서 BGM on/off 아이콘이 안정적으로 표시되며, 개발/빌드 환경 차이로 발생하던 리소스 로딩 문제가 해소되었습니다.`,
+    },
+  ];
+
+  // 이슈 5) 승리/새 게임 상태에서 Undo로 상태 불일치
+  const gameStateIssueData = [
+    {
+      title: `[문제]`,
+      content: `게임을 막 시작한 초기 상태이거나 이미 승리한 상태에서 되돌리기(Undo)를 실행할 경우, 이전 데이터가 정상적으로 존재하지 않아 과거 데이터가 불러와지거나 화면이 비어버리는 치명적인 문제가 발생했습니다.`,
+    },
+    {
+      title: `[해결]`,
+      content: `되돌리기(Undo)는 마지막 이동 시점의 보드 상태를 복원하는 방식이었기 때문에, 게임 시작 직후나 재시작 직후에는 참조할 이전 상태가 존재하지 않는 문제가 있었습니다. 이로 인해 빈 배열 또는 잘못된 초기 값이 복원되는 현상이 발생했습니다.
+
+            이를 해결하기 위해 게임 시작 직후를 감지하는 플래그(newGameCheck)와 승리 상태를 나타내는 플래그(GameWin)를 분리해 관리하고, 게임오버·승리 상태·새 게임 시작 직후에는 Undo가 실행되지 않도록 조건을 추가했습니다.`,
+    },
+
+    {
+      title: `[결과]`,
+      content: `되돌리기(Undo)가 허용되는 상태에서만 안정적으로 동작하게 되어, 승리/재시작/홈 이동 같은 전환 구간에서도 상태 불일치 문제를 해결하였습니다.`,
+    },
+  ];
 
   return (
     <div className={style.project}>
-      {/* 대표이미지 */}
-      <a
-        className={style.heroImg}
-        style={{ backgroundImage: "url(/game_2048.png)" }}
-        href="https://3lines-2048.netlify.app/"
-        target="_blank"
-      >
-        <div className={style.btnLinkBg}>
-          <span className={style.btnLink}>바로가기</span>
-        </div>
-      </a>
+      <ProjectPreviewCard bgURL="/game_2048.png" projectLink="https://3lines-2048.netlify.app/" />
 
-      {/* 내용 */}
       <div className={style.projectDesc}>
-        <div className={style.projectHeader}>
-          <div className={style.mainTitle}>2048 (웹 퍼즐 게임)</div>
-          <a href="https://github.com/teakyungg/2048Game" title="GitHub 바로가기" target="_blank">
-            <Image src={"/github_logo_icon.svg"} width={40} height={40} alt="github_logo_icon" />
-          </a>
-        </div>
+        <ProjectCard
+          title="2048 Game"
+          gitHubLink="https://github.com/teakyungg/2048Game"
+          projectDesc={`Vanilla TypeScript 환경에서 2048 게임을 구현한 팀 프로젝트입니다.
+                        (담당: 타일 이동 로직/이동 애니메이션/입력-애니메이션 동기화/일부 모드 예외·빌드 안정화)`}
+        />
 
-        <div className={style.descContent} style={{ position: "relative", bottom: "20px" }}>
-          {`JavaScript를 활용해 동적인 웹 페이지를 만들어보고자 했고, 
-            사용자와의 상호작용이 많은 콘텐츠를 고민하던 중 2048 게임이 적합하다고 판단하여 만든 프로젝트 입니다.`}
-        </div>
+        <ProjectSkill skillData={skillData} />
 
-        <div className={style.skill}>
-          <span>프로젝트 특징 :</span>
-          <ul className={style.skillList}>{skillItem}</ul>
-          <div style={{ paddingTop: "20px" }}>(팀 프로젝트에서 제가 담당한 부분만 서술하였습니다.)</div>
-        </div>
-
-        <div className={style.desc}>
-          <div className={style.descTitle}>TypeScript + 모듈화로 게임 로직 구조화</div>
-          <Image src={"/2048/file structure.png"} width={328} height={313} alt="2048 file structure" />
+        <ProjectDescCard>
+          <div className={style.descTitle}>초기 설계</div>
           <div className={style.descContent}>
-            {`초기 설계 단계에서, 하나의 파일에 타일 이동·병합 로직, 점수 계산, 게임 오버 판단, DOM 조작이 모두 섞이면
-                      규칙을 수정하거나 새로운 모드를 추가할 때마다 코드 전반이 깨질 수 있다는 문제를 예상했습니다.
-                      이를 피하기 위해 게임 로직을 역할별로 분리하여 팀원들과 개발하였습니다.`}
+            <p>- 2048의 핵심 규칙(이동/병합)을 “계산 결과”로 분리해 애니메이션과 상태 업데이트를 분리했습니다.</p>
+            <p>- 반응형에서도 타일이 정확히 정렬되도록, 실제 렌더링 값을 기준으로 이동 거리를 계산했습니다.</p>
           </div>
 
-          <ul style={{ display: "flex", flexDirection: "column", gap: "20px", padding: "20px 0" }}>{fileModuleItem}</ul>
+          {basicDesignData.map((value, index) => (
+            <details key={`basicDesignData ${index}`}>
+              <summary>{value.title}</summary>
+              <p>{value.content}</p>
+            </details>
+          ))}
+        </ProjectDescCard>
 
+        <ProjectDescCard>
+          <div className={style.descTitle}>구현 도구 선택</div>
           <div className={style.descContent}>
-            {`이렇게 “한 파일 = 한 책임(SRP)” 기준으로 나누면서,
-                      새 모드를 추가할 때도 기존 코드를 거의 건드리지 않고 초기화/입력 처리 부분만 조합해 재사용할 수 있도록 만들었습니다.`}
+            <p>- 좌표/배열 계산이 많은 게임 특성상 TypeScript로 실수를 줄이려 했습니다.</p>
+            <p>- Vite 환경에서 정적 자산(svg 등)까지 빌드/배포 관점으로 안정화했습니다.</p>
           </div>
-        </div>
 
-        <div className={style.desc}>
-          <div className={style.descTitle}>타일 이동·병합 로직 설계 (find-move-tile.ts)</div>
+          {toolData.map((value, index) => (
+            <details key={`toolData ${index}`}>
+              <summary>{value.title}</summary>
+              <p>{value.content}</p>
+            </details>
+          ))}
+        </ProjectDescCard>
 
-          <div className={style.descContent}>
-            {`게임 제작에 앞서, 2048 게임이 동작하는 핵심 로직을 먼저 구현하는 데 집중했습니다.
+        <ProjectDescCard>
+          <div className={style.descTitle}>1차 구현 결과</div>
+          <p>{`타일 이동·병합 로직과 이동 애니메이션을 연결해, “키 입력 → 이동 애니메이션 → 값 반영”의 기본 게임 루프를 완성했습니다. 다만 QA 과정에서 사용자 경험과 안정성에 영향을 줄 수 있는 여러 문제들을 확인했습니다.
 
-                      2048게임의 핵심은 
-                      1. 특정 위치의 어떤 숫자가 있는지 기억하는 것 
-                      2. 방향키 입력 시 병합이 가능한 숫자가 있는지 확인하는 것  
-                      3. 병합할 수 있다면 합치고, 없다면 이동만 수행하는 것  
+              [발견된 문제]
+              - 이동이 발생하지 않았음에도 새 타일이 생성되는 문제
+              - 반응형 환경에서 타일 이동 애니메이션 위치 오차
+              - 애니메이션 진행 중 연속 입력으로 인한 상태 꼬임
+              - Vite 빌드 환경에서 SVG 아이콘 경로가 깨지는 문제
+              - 승리/새 게임 상태에서 Undo 동작 예외 처리 미흡
 
-                      이 규칙을 기반으로 게임 맵을 2차원 배열로 구성하고,
-                      현재 보드 상태와 입력된 방향에 따라 병합 여부, 이동 위치 등을 계산하는 로직을 함수 형태로 설계했습니다.
-                      
-                      최종적으로, 방향키만 함수에 전달하면  
-                      렌더링에 필요한 최신 2차원 배열 상태를 반환하도록 구성해  
-                      게임 내부 동작과 화면 렌더링을 명확히 분리할 수 있었습니다.
-                    `}
-          </div>
-        </div>
+              위 문제들은 게임 규칙 이해와 조작 경험에 직접적인 영향을 준다고 판단해, 품질 개선 관점에서 추가적인 수정 작업을 진행했습니다.`}</p>
+        </ProjectDescCard>
 
-        <div className={style.desc}>
-          <div className={style.descTitle}>이동 애니메이션 및 AI 모드 연동 (moveAniElement, MoveArrAI 등)</div>
+        <ProjectDescCard>
+          <div className={style.descTitle}>무효 이동에서도 새 타일 생성되는 문제 개선</div>
+          {invalidMoveIssueData.map((value, index) => (
+            <details key={`invalidMoveIssueData ${index}`}>
+              <summary>{value.title}</summary>
+              <p>{value.content}</p>
+            </details>
+          ))}
+        </ProjectDescCard>
 
-          <div className={style.descContent}>
-            {`이 2048 프로젝트에는 플레이어가 직접 조작하는 일반 모드 외에도,
-                      자동으로 움직이며 플레이하는 AI 모드가 존재합니다.
+        <ProjectDescCard>
+          <div className={style.descTitle}>반응형 환경에서 타일 이동 애니메이션 오차 개선</div>
+          {responsiveAnimationIssueData.map((value, index) => (
+            <details key={`responsiveAnimationIssueData ${index}`}>
+              <summary>{value.title}</summary>
+              <p>{value.content}</p>
+            </details>
+          ))}
+        </ProjectDescCard>
 
-                      두 모드 모두에서 동일한 이동 애니메이션을 적용하기 위해,
-                      타일이 실제로 이동한 좌표 정보를 기반으로 DOM 요소에 transition과 위치 변화를 부여하는 기능을
-                      함수 형태로 설계했습니다. 방향키만 전달하면 그에 맞는 애니메이션이 실행되도록
-                      함수형 프로그래밍 방식으로 구현했습니다.
-                      
-                      AI 모드는 사용자의 입력이 없는 대신 자동으로 이동 정보를 생성하기 때문에,
-                      기존 사용자용 애니메이션 함수를 재사용하면서 필요한 기능을 일부 확장하여
-                      AI가 움직일 때도 사람 플레이와 동일한 자연스러운 이동·병합 애니메이션이 나타나도록 구성했습니다.`}
-          </div>
-        </div>
+        <ProjectDescCard>
+          <div className={style.descTitle}>애니메이션 중 연속 입력으로 인한 상태 꼬임 방지</div>
+          {inputSyncIssueData.map((value, index) => (
+            <details key={`inputSyncIssueData ${index}`}>
+              <summary>{value.title}</summary>
+              <p>{value.content}</p>
+            </details>
+          ))}
+        </ProjectDescCard>
+
+        <ProjectDescCard>
+          <div className={style.descTitle}>Vite 빌드 환경에서 SVG 아이콘 경로 문제 해결</div>
+          {assetBuildIssueData.map((value, index) => (
+            <details key={`assetBuildIssueData ${index}`}>
+              <summary>{value.title}</summary>
+              <p>{value.content}</p>
+            </details>
+          ))}
+        </ProjectDescCard>
+
+        <ProjectDescCard>
+          <div className={style.descTitle}>승리/새 게임 상태에서 되돌리기 예외 처리로 안정화</div>
+          {gameStateIssueData.map((value, index) => (
+            <details key={`gameStateIssueData ${index}`}>
+              <summary>{value.title}</summary>
+              <p>{value.content}</p>
+            </details>
+          ))}
+        </ProjectDescCard>
+
+        <ProjectDescCard>
+          <div className={style.descTitle}>2차 구현 결과</div>
+          <p>{`QA에서 발견된 “규칙 위반(무효 이동 타일 생성)”, “반응형 애니메이션 오차”, “연속 입력 동기화”, “빌드 자산 경로”, “승리/Undo 예외”를 개선해 사용자 입력 흐름과 화면 동작이 안정적으로 일치하도록 완성도를 올렸습니다.`}</p>
+        </ProjectDescCard>
       </div>
     </div>
   );
