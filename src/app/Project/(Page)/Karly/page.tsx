@@ -3,8 +3,6 @@ import { ProjectPreviewCard } from "../../Component/ProjectPreviewCard/ProjectPr
 import { ProjectCard } from "../../Component/ProjectCard/ProjectCard";
 import { ProjectSkill } from "../../Component/ProjectSkill/ProjectSkill";
 import { ProjectDescCard } from "../../Component/ProjectDesc/ProjectDescCard";
-import { title } from "process";
-import Image from "next/image";
 
 export default function Karly() {
   const skillData = ["Vite", "TailWind CSS", "Git", "GitHub", "반응형", "팀 프로젝트"];
