@@ -13,7 +13,13 @@ export function ProjectCard({ title, gitHubLink, projectDesc }: ProjectCardType)
       <div className={style.projectHeader}>
         <div className={style.mainTitle}>{title}</div>
         <a href={gitHubLink} title="GitHub 바로가기" target="_blank">
-          <Image src={"/github_logo_icon.svg"} width={40} height={40} alt="github_logo_icon" />
+          <Image
+            className={style.gitHubIcon}
+            src={"/github_logo_icon.svg"}
+            width={40}
+            height={40}
+            alt="github_logo_icon"
+          />
         </a>
       </div>
       <p>{projectDesc}</p>
