@@ -285,6 +285,7 @@ export default function Starbucks() {
           <div className={style.descTitle}>2차 구현 결과</div>
           <div>
             {`동적 UI(프로모션 토글)로 인해 발생한 스크롤 애니메이션 기준 문제를 해결하고, 탭 비활성화 상태에서는 불필요한 autoplay 동작을 제어해 성능 낭비를 줄였습니다.
+            
               또한 정적 자산 경로 오류와 hover 피드백, 반응형 이슈를 함께 개선해, 사용자가 처음 접했을 때 완성도가 낮아 보일 수 있는 지점을 안정화하며 웹 페이지를 성공적으로 완성했습니다.`}
           </div>
         </ProjectDescCard>
