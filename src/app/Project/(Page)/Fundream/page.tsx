@@ -140,7 +140,7 @@ export default function Fundream() {
       <div className={style.projectDesc}>
         {/* 프로젝트 제목, 깃허브 링크 */}
         <ProjectCard
-          title="펀드림(FunDream)"
+          title="FunDream"
           gitHubLink="https://github.com/FRONTENDBOOTCAMP-13th/Final-11-Cutie"
           projectDesc={`사용자가 프로젝트(상품)를 등록하고, 펀딩/결제/리뷰까지 이어지는 크라우드 펀딩 플랫폼 팀 프로젝트입니다.
             (담당: 프로젝트 등록 상세 플로우/인증 UI/상태관리/메인 로딩 UX/일부 리팩토링)`}
