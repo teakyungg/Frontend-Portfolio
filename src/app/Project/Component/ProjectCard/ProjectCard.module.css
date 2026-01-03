@@ -4,7 +4,20 @@
   align-items: center;
 
   .mainTitle {
-    font-size: 50px;
+    font-size: 2em;
     font-weight: 700;
+  }
+
+  .gitHubIcon {
+    width: 30px;
+    aspect-ratio: 1/1;
+  }
+}
+
+@media (min-width: 767px) {
+  .projectHeader {
+    .gitHubIcon {
+      width: 40px;
+    }
   }
 }
