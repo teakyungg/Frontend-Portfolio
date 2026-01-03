@@ -179,7 +179,7 @@ export default function Animal() {
   return (
     <div className={style.project}>
       {/* 메인 이미지, 바로가기 링크 */}
-      <ProjectPreviewCard bgURL="/animal.png" projectLink="https://animal-react.netlify.app/" />
+      <ProjectPreviewCard bgURL="/Animal.png" projectLink="https://animal-react.netlify.app/" />
 
       <div className={style.projectDesc}>
         {/* 프로젝트 제목, 깃허브 링크 */}

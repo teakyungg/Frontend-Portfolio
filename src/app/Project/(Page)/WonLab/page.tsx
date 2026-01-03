@@ -140,7 +140,7 @@ export default function WonLab() {
   return (
     <div className={style.project}>
       {/* 메인 이미지, 바로가기 링크 */}
-      <ProjectPreviewCard bgURL="/wonlab.png" projectLink="https://teakyungg.github.io/WonLab/" />
+      <ProjectPreviewCard bgURL="/WonLab.png" projectLink="https://teakyungg.github.io/WonLab/" />
 
       <div className={style.projectDesc}>
         {/* 프로젝트 제목, 깃허브 링크 */}
