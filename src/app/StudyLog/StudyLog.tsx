@@ -29,7 +29,7 @@ export function StudyLog() {
       link: "https://florentine-soy-ff3.notion.site/display-2bfabb3b12b680a3ad3ee4d8dbfb82d0#2bfabb3b12b680d38819d0f1352c5df2",
     },
     {
-      title: "pseudo-class / pseudo-element",
+      title: "Pseudo selectors",
       link: "https://florentine-soy-ff3.notion.site/pseudo-class-pseudo-element-2c2abb3b12b68011961ce80240287678?source=copy_link",
     },
     { title: "this", link: "https://florentine-soy-ff3.notion.site/this-2d1abb3b12b680e48e77e10bfc5b8083" },
