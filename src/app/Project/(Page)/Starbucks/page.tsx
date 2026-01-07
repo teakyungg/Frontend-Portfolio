@@ -154,7 +154,7 @@ export default function Starbucks() {
     <div className={style.project}>
       {/* 메인 이미지, 바로가기 링크 */}
       {/* bgURL은 포트폴리오 public 경로에 맞게 교체 */}
-      <ProjectPreviewCard bgURL="/starbucks.png" projectLink="https://github.com/teakyungg/Starbucks" />
+      <ProjectPreviewCard bgURL="/starbucks.png" projectLink="https://startbycks-teaktung.netlify.app/" />
 
       <div className={style.projectDesc}>
         {/* 프로젝트 제목, 깃허브 링크 */}
