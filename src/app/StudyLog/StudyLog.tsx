@@ -37,9 +37,11 @@ export function StudyLog() {
       title: "React",
       link: "https://florentine-soy-ff3.notion.site/React-2a1abb3b12b68016a562f274b8491b89?source=copy_link",
     },
+    {
+      title: "SSR/CSR",
+      link: "https://florentine-soy-ff3.notion.site/SSR-CSR-2e2abb3b12b6806f82a2ffbaab8fb0e8?pvs=74",
+    },
   ];
-
-  const linkEl = linkData.map((value) => <NotionLink key={value.title} title={value.title} link={value.link} />);
 
   return (
     <section className={styles.studyLog} id="StudyLog">
@@ -48,7 +50,11 @@ export function StudyLog() {
         <p className={styles.info}>
           <span>학습 과정과 실험 내용을 정리한</span> <span>Notion 페이지입니다.</span>
         </p>
-        <div className={styles.studyLogLink}>{linkEl}</div>
+        <div className={styles.studyLogLink}>
+          {linkData.map((value) => (
+            <NotionLink key={value.title} title={value.title} link={value.link} />
+          ))}
+        </div>
       </div>
     </section>
   );
